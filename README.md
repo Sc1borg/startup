@@ -2,7 +2,7 @@
 
 [My Notes](notes.md)
 
-A brief description of the application here. I plan to create a wordle esque game based on an anime that I enjoy. I will create a couple different game modes for things such as quotes, names, and characters.
+I plan to create a wordle-esque game based on an anime that I enjoy. I will create a couple different game modes for things such as quotes, names, and characters. I will store scores, enable login, and allow players to see how they compare to others. I will add additional game modes that relate to a spinoff game that they created.
 
 
 > [!NOTE]
@@ -16,7 +16,7 @@ A brief description of the application here. I plan to create a wordle esque gam
 > [!NOTE]
 >  Fill in this sections as the submission artifact for this deliverable. You can refer to this [example](https://github.com/webprogramming260/startup-example/blob/main/README.md) for inspiration.
 
-For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
+For this deliverable I did the following. 
 
 - [ ] Proper use of Markdown
 - [ ] A concise and compelling elevator pitch
@@ -26,8 +26,7 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 
 ### Elevator pitch
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-
+Do you like playing word games and you love Haikyuu? With this application, you will be able to prove your love of both. Play through several different game modes to show your knowledge of the anime and your mental prowess. Login to be able to see how you compare to others and store your top scores.
 ### Design
 
 ![Design image](placeholder.png)
@@ -43,20 +42,21 @@ sequenceDiagram
 
 ### Key features
 
-- Describe your key feature
-- Describe your key feature
-- Describe your key feature
+- Login to be able to save your scores
+- Classic wordle style game mode
+- Nontraditional guessing mode
+- Engaging gameplay
 
 ### Technologies
 
 I am going to use the required technologies in the following ways.
 
-- **HTML** - Description here
-- **CSS** - Description here
-- **React** - Description here
-- **Service** - Description here
-- **DB/Login** - Description here
-- **WebSocket** - Description here
+- **HTML** - Correctly uses HTML structure for application. I will create a page for login and others for game modes
+- **CSS** - Application formatting that will work on multiple screen sizes. Also engaging yet not overstimulating.
+- **React** - Provides login for storing scores
+- **Service** - Backend service to enable login and score sharing. Grabs information from the Haikyuu wiki.
+- **DB/Login** - Store users and their scores. Securely store login information. Store information relevant to the games.
+- **WebSocket** - Broadcast average scores and percentiles.
 
 ## 🚀 AWS deliverable
 
