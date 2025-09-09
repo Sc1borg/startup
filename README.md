@@ -31,13 +31,15 @@ Do you like playing word games and you love Haikyuu? With this application, you 
 
 ![Design image](placeholder.png)
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+I'm not 100% sure how the sequence diagram should look, so I'll update it as I implement different features, but here's the basic parts that I understand.
 
 ```mermaid
 sequenceDiagram
-    actor You
+    actor User1
+    actor User2
     actor Website
-    You->>Website: Replace this with your design
+    User1 ->> Website: Play daily
+    Website ->> User2: Display statistics
 ```
 
 ### Key features
