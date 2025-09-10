@@ -14,8 +14,9 @@
 I learned how to use Github for the first time. It started with learning how to push, pull, and clone different repositories.
 ## AWS
 
-My IP address is: 54.81.96.130
-Launching my AMI I initially put it on a private subnet. Even though it had a public IP address and the security group was right, I wasn't able to connect to it.
+set up an ec2 instance in class
+learned about ip addresses - like mail addresses
+tried to set up a domain name, but thinking of a name was too much pressure
 
 ## Caddy
 
