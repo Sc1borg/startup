@@ -29,7 +29,7 @@ For this deliverable I did the following.
 Do you like playing word games and you love Haikyuu? With this application, you will be able to prove your love of both. Play through several different game modes to show your knowledge of the anime and your mental prowess. Login to be able to see how you compare to others and store your top scores.
 ### Design
 
-![Design image](Screenshot 2025-09-10 at 11-32-07 Haikyuudle Mockup Page1.png)
+![Design image](HaikyuuMockup.png)
 
 I'm not 100% sure how the sequence diagram should look, so I'll update it as I implement different features, but here's the basic parts that I understand.
 
