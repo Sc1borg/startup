@@ -24,9 +24,7 @@ No problems worked just like it said in the [instruction](https://github.com/web
 
 ## HTML
 
-This was easy. I was careful to use the correct structural elements such as header, footer, main, nav, and form. The links between the three views work great using the `a` element.
-
-The part I didn't like was the duplication of the header and footer code. This is messy, but it will get cleaned up when I get to React.
+I struggled at first because I didn't understand how to edit my html files and then deploy them, but once I found out that I didn't need to be in my ssh to edit it, it got a lot easier. I got a lot of inspiration from W3 schools and formatting from Genshindle.com
 
 ## CSS
 
