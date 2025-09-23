@@ -16,7 +16,7 @@ I learned how to use Github for the first time. It started with learning how to 
 
 set up an ec2 instance in class
 learned about ip addresses - like mail addresses
-tried to set up a domain name, but thinking of a name was too much pressure
+tried to set up a domain name, but I had trouble because route 53 wasn't working for me. I eventually turned to a different company, and I might transfer later.
 
 ## Caddy
 
