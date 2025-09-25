@@ -1,58 +1,81 @@
 <!DOCTYPE html>
-<html lang = "en">
-  <style>
-    body {
-      background-image: url('https://static0.srcdn.com/wordpress/wp-content/uploads/2021/04/Haikyuu-GetsVolleyballRight-FeatureImage.jpeg');
-      background-repeat: no-repeat;
-      background-size: cover;
-      text-align: center;
-    }
-    .box {
-      text-align: center;
-      margin: auto;
-      border-radius: 25px;
-      background-color:grey;
-      padding: 40px;
-      width: 400px;
-      height: 200px;
-    }
-    .topNav {
-      background-color:black;
-      height:50px;
-      width:110%;
-      display: flex;
-      flex-direction: row;
-      margin-top: -8px;
-      margin-left: -8px;
-      align-items:center;
-    }
-    .buttonheaderbutton {
-      color:white;
-      text-decoration: none;
-      font-size: 25px;
-      margin-left: 15px;
-    }
-    .login {
-      color:grey;
-    }
-  </style>
-  <div class ="topNav">
-    <div><a class="buttonheaderbutton" href ="/main">Main</a></div>
-    <div><a class="buttonheaderbutton" href = "/wordle">Wordle</a></div>
-    <div><a class="buttonheaderbutton" href = "/quote">Quote</a></div>
-    <div class = "login">
-    <input type="text">Enter Username</input>
-    <input type="password">Password</input>
-  </div>
-  </div>
-  <body>
+<body>
+    <html lang = "en">
+    <style>
+        body {
+        background-image: url('https://static0.srcdn.com/wordpress/wp-content/uploads/2021/04/Haikyuu-GetsVolleyballRight-FeatureImage.jpeg');
+        background-position-y: top;
+        background-repeat: no-repeat;
+        background-size: cover;
+        text-align: center;
+        margin:0;
+        display: flex;
+        flex-direction: column;
+        }
+        .box {
+        text-align: center;
+        margin: auto;
+        border-radius: 25px;
+        background-color:grey;
+        padding: 40px;
+        width: 400px;
+        height: 200px;
+        }
+        .topnav {
+        background-color:black;
+        height:50px;
+        width:100%;
+        display: flex;
+        flex-direction: row;
+        padding: 15px;
+        margin-top: -8x;
+        margin-left: -8px;
+        align-items:center;
+        }
+        .buttonheaderbutton {
+        color:white;
+        text-decoration: none;
+        font-size: 25px;
+        margin-left: 15px;
+        }
+        .login {
+        display: flex;
+        margin-left: auto;
+        }
+        input {
+            display:flex;
+            margin-right: 15px;
+        }
+
+        footer {
+          position: fixed;
+          bottom: 0;
+          width: 100%;
+          background-color: darkslategrey;
+        }
+        .footerlink {
+          color:white;
+        }
+    </style>
+    <nav class ="topnav">
+        <div><a class="buttonheaderbutton" href ="/.idea/index.html">Main</a></div>
+        <div><a class="buttonheaderbutton" href = "/.idea/wordle.html">Wordle</a></div>
+        <div><a class="buttonheaderbutton" href = "/.idea/quote.html">Quote</a></div>
+        <div class = "login">
+        <input type="text" placeholder="Enter Username">
+        <input type="password" placeholder="Password">
+        </nav>
+    </div>
     <div class="box">
     <header>
       <h1>HAIKYUUDLE</h1>
+      <h2>Guessing</h2>
       <h2>Eric Jensen</h2>
       <p><a href = https://github.com/Sc1borg/startup/>GitHub repo</a></p>
+      <a href = https://www.youtube.com/watch?v=dQw4w9WgXcQ>Statistics</a>
     </header>
     </div>
+    <footer><a class="footerlink" href = "https://www.youtube.com/watch?v=dQw4w9WgXcQ">Real Time communication here</a></footer>
   </body>
 
   
