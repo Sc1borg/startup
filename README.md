@@ -72,13 +72,13 @@ For this deliverable I did the following:
 
 - [x] **HTML pages** - I created my index page as well as pages for 2 other game modes.
 - [x] **Proper HTML element usage** - I followed W3schools tutorials to ensure proper syntax and usage.
-- [ ] **Links** - I did not complete this part of the deliverable.
-- [ ] **Text** - I did not complete this part of the deliverable.
-- [ ] **3rd party API placeholder** - I did not complete this part of the deliverable.
-- [x] **Images** - I added a background image as well as a few other images on each page.
-- [ ] **Login placeholder** - I did not complete this part of the deliverable.
-- [ ] **DB data placeholder** - I did not complete this part of the deliverable.
-- [ ] **WebSocket placeholder** - I did not complete this part of the deliverable.
+- [x] **Links** - Added links between pages and a statistics link
+- [x] **Text** - I have text that matches my application purpose.
+- [x] **3rd party API placeholder** - There is a placeholder for this.
+- [x] **Images** - I added a background image.
+- [x] **Login placeholder** - I have a login interface
+- [x] **DB data placeholder** - I left a spot for where the database will be used
+- [x] **WebSocket placeholder** - Included a placeholder
 
 ## 🚀 CSS deliverable
 

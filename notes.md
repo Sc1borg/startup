@@ -28,7 +28,7 @@ I struggled at first because I didn't understand how to edit my html files and t
 
 ## CSS
 
-This took a couple hours to get it how I wanted. It was important to make it responsive and Bootstrap helped with that. It looks great on all kinds of screen sizes.
+This took a couple hours to get it how I wanted. It was important to make it responsive, and I haven't done great yet. CSS is really cool, and it's fun to play with. I hate the way that if you don't have it exactly right it just doesn't do anything. Like no error message just nah.
 
 Bootstrap seems a bit like magic. It styles things nicely, but is very opinionated. You either do, or you do not. There doesn't seem to be much in between.
 
