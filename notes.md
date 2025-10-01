@@ -32,7 +32,9 @@ This took a couple hours to get it how I wanted. It was important to make it res
 
 Bootstrap seems a bit like magic. It styles things nicely, but is very opinionated. You either do, or you do not. There doesn't seem to be much in between.
 
-I did like the navbar it made it super easy to build a responsive header.
+I love CSS it's so pretty! And it's honestly not too hard to learn!
+
+<!-- I did like the navbar it made it super easy to build a responsive header.
 
 ```html
       <nav class="navbar navbar-expand-lg bg-body-tertiary">
@@ -69,7 +71,7 @@ I also used SVG to make the icon and logo for the app. This turned out to be a p
   <rect width="100" height="100" fill="#0066aa" rx="10" ry="10" />
   <text x="50%" y="50%" dominant-baseline="central" text-anchor="middle" font-size="72" font-family="Arial" fill="white">C</text>
 </svg>
-```
+``` -->
 
 ## React Part 1: Routing
 

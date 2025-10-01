@@ -82,14 +82,14 @@ For this deliverable I did the following:
 
 ## 🚀 CSS deliverable
 
-For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
+For this deliverable I did the following:
 
-- [ ] **Header, footer, and main content body** - I did not complete this part of the deliverable.
-- [ ] **Navigation elements** - I did not complete this part of the deliverable.
-- [ ] **Responsive to window resizing** - I did not complete this part of the deliverable.
-- [ ] **Application elements** - I did not complete this part of the deliverable.
-- [ ] **Application text content** - I did not complete this part of the deliverable.
-- [ ] **Application images** - I did not complete this part of the deliverable.
+- [x] **Header, footer, and main content body** - The header, footer, and main content are all formatted how I want them.
+- [x] **Navigation elements** - You can quickly navigate between pages using the nav bar at the top
+- [x] **Responsive to window resizing** - The nav bar and boxes respond to the shape of the window
+- [x] **Application elements** - Some application specific elements such as the boxes for guesses are shown
+- [x] **Application text content** - The text of the application is there
+- [x] **Application images** - Added images
 
 ## 🚀 React part 1: Routing deliverable
 
