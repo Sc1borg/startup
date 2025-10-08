@@ -93,11 +93,11 @@ For this deliverable I did the following:
 
 ## 🚀 React part 1: Routing deliverable
 
-For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
+For this deliverable I did the following:
 
-- [ ] **Bundled using Vite** - I did not complete this part of the deliverable.
-- [ ] **Components** - I did not complete this part of the deliverable.
-- [ ] **Router** - I did not complete this part of the deliverable.
+- [x] **Bundled using Vite** - Using vite, I connected my html and java but left out the css
+- [x] **Components** - I ported everything into jsx files and css files.
+- [x] **Router** - I used a router to get header/footer framework, and I used .jsx files for everything else
 
 ## 🚀 React part 2: Reactivity deliverable
 
