@@ -14,16 +14,15 @@ flex-direction: column;
 }
 .box {
   display: flex;
-  justify-content: center; /* centers horizontally */
-  align-items: center;     /* centers vertically */
-  text-align: center;      /* centers inline text horizontally */
+  justify-content: center; 
+  align-items: center;          
   margin: auto;
-  margin-top: 2.5%;
+  margin-top: 15px;
   border-radius: 25px;
   background-color: grey;
   padding: 40px;
-  width: 450px;
-  height: 300px;
+  width: 400px;
+  height: 250px;
 }
 header {
     margin-top: -55px;
@@ -85,6 +84,7 @@ footer {
     height: 125px;
     align-items: center;
     text-align: center;
+    margin-top: 1%;
 }
 .littlebox {
     display: flex;

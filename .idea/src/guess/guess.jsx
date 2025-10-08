@@ -2,8 +2,33 @@ import React from 'react';
 
 export function Guess() {
   return (
-    <main className="container-fluid bg-secondary text-center">
-      <div>guess displayed here</div>
+    <div>
+    <div class="box">
+    <header>
+      <h1>HAIKYUUDLE</h1>
+      <h2>Guessing</h2>
+      <h2>Eric Jensen</h2>
+      <p><a href = "https://github.com/Sc1borg/startup/">GitHub repo</a></p>
+      <a href = "https://www.youtube.com/watch?v=dQw4w9WgXcQ">Statistics(placeholder)</a>
+    </header>
+    </div>
+    <main>
+    <span class = "categories">
+      <div class="id">Photo</div>
+      <div class="id">Name</div>
+      <div class="id">School</div>
+      <div class="id">Position</div>
+      <div class="id">Number</div>
+    </span>
     </main>
+    <div class = "categories"><div>Access database for this</div></div>
+    <div class = "guess">
+      <div class= "littlebox"><img src = "https://s3-alpha.figma.com/hub/file/1067843952/a3ababe3-969e-49f4-b3cb-6acbb724368d-cover.png" width = "100px" border-radius = '20px'></img></div>
+      <div class= "littlebox">Hinata Shoyo</div>
+      <div class= "littlebox">Karasuno High</div>
+      <div class= "littlebox">Middle Blocker</div>
+      <div class= "littlebox">10</div>
+    </div>
+    </div>
   );
 }

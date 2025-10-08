@@ -77,6 +77,7 @@ footer {
 .guess {
     display: flex;
     margin:auto;
+    margin-top:200px;
     width: 800px;
     height: 125px;
     align-items: center;

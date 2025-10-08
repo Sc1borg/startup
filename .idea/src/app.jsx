@@ -21,7 +21,6 @@ export default function App() {
                     <input type="password" placeholder="Password"/>
                 </div>
             </nav>
-            <div className="box">
                 <main><Routes>
                     <Route path='/' element={<Guess />} exact />
                     <Route path='/wordle' element={<Wordle />} />
@@ -30,11 +29,10 @@ export default function App() {
                     <Route path='*' element={<NotFound />} />
                     </Routes>
                 </main>
-            </div>
         <footer><a className="footerlink" href = "https://www.youtube.com/watch?v=dQw4w9WgXcQ">Real Time communication here</a></footer>
     </div>
   </BrowserRouter>);
 }
 function NotFound() {
-  return <main className="container-fluid bg-secondary text-center">404: Return to sender. Address unknown.</main>;
+  return <main className="box">404: Return to sender. Address unknown.</main>;
 }
