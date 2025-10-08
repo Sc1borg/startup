@@ -1,5 +1,98 @@
-.body {
-  display: flex;
-  flex-direction: column;
-  min-width: 375px;
+html, body {
+height: 100%; 
+margin: 0;    
+}
+
+body {
+background-image: url('https://static0.srcdn.com/wordpress/wp-content/uploads/2021/04/Haikyuu-GetsVolleyballRight-FeatureImage.jpeg');
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover;
+text-align: center;
+display: flex;
+flex-direction: column;
+}
+.box {
+display: flex;
+text-align: center;
+align-items: center;
+margin: auto;
+margin-top: 2.5%;
+border-radius: 25px;
+background-color:grey;
+padding: 40px;
+width: 25%;
+height: 15%;
+}
+header {
+    margin-top: -55px;
+}
+.topnav {
+background-color:black;
+height:50px;
+width:100%;
+display: flex;
+flex-direction: row;
+align-items:center;
+}
+.buttonheaderbutton {
+color:white;
+text-decoration: none;
+font-size: 25px;
+margin-left: 15px;
+}
+.login {
+display: flex;
+margin-left: auto;
+}
+input {
+    display:flex;
+    margin-right: 15px;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 25px;
+    background-color: darkslategrey;
+}
+.footerlink {
+    color:white;
+}
+.categories {
+    background-color: grey;
+    margin: auto;
+    margin-top: 40px;
+    border-radius: 25px;
+    width: 800px;
+    height: 50px;
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    align-items: center;
+}
+.id {
+    color:darkblue;
+    font-size: 25px;
+    margin:auto;
+}
+.guess {
+    display: flex;
+    margin:auto;
+    width: 800px;
+    height: 125px;
+    align-items: center;
+    text-align: center;
+}
+.littlebox {
+    display: flex;
+    background-color: grey;
+    width: 125px;
+    height: 125px;
+    border-radius: 25px;
+    margin: auto;
+    font-size:x-large;
+    align-items: center;
+    justify-content: center;
 }
