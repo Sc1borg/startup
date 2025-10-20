@@ -30,7 +30,7 @@ export function Unauthenticated(props) {
           <input className='form-control' type='password' onChange={(e) => setPassword(e.target.value)} placeholder='password' />
         </div>
         <Button variant='primary' onClick={() => loginUser()} disabled={!userName || !password}>
-          Login
+          Log in
         </Button>
         <Button variant='secondary' onClick={() => createUser()} disabled={!userName || !password}>
           Create

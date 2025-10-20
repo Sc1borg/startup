@@ -3,3 +3,16 @@
     font-size: 1.5em;
     padding: 0.5em;
 }
+
+.loginbox {
+  display: flex;
+  justify-content: center; 
+  align-items: center;          
+  margin: auto;
+  margin-top: 15px;
+  border-radius: 25px;
+  background-color: grey;
+  padding: 40px;
+  width: 400px;
+  height: 250px;
+}
