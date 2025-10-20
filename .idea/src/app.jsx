@@ -4,10 +4,15 @@ import { Emoji } from './emoji/emoji';
 import { Guess } from './guess/guess';
 import { Quote } from './quote/quote';
 import { Wordle } from './wordle/wordle';
+import { Login } from './login/login';
+import { AuthState } from './login/authState';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './app.css';
 
 export default function App() {
+  const [userName, setUserName] = React.useState(localStorage.getItem('userName') || '');
+  const currentAuthState = userName ? AuthState.Authenticated : AuthState.Unauthenticated;
+  const [authState, setAuthState] = React.useState(currentAuthState);
   return (
     <BrowserRouter>
         <div className="body">
@@ -17,8 +22,7 @@ export default function App() {
                 <div><NavLink className="buttonheaderbutton" to="quote">Quote</NavLink></div>
                 <div><NavLink className="buttonheaderbutton" to="emoji">Emoji</NavLink></div>
                 <div className = "login">
-                    <input type="text" placeholder="Enter Username"/>
-                    <input type="password" placeholder="Password"/>
+                    <div><NavLink className="buttonheaderbutton" to="login">User</NavLink></div>
                 </div>
             </nav>
                 <main><Routes>
@@ -26,6 +30,16 @@ export default function App() {
                     <Route path='/wordle' element={<Wordle />} />
                     <Route path='/quote' element={<Quote />} />
                     <Route path='/emoji' element={<Emoji />} />
+                    <Route path='/login' element={
+                      <Login
+                        userName={userName}
+                        authState={authState}
+                        onAuthChange={(userName, authState) => {
+                          setAuthState(authState);
+                          setUserName(userName);
+                        }}
+                        />}
+                      />
                     <Route path='*' element={<NotFound />} />
                     </Routes>
                 </main>
