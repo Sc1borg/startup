@@ -9,33 +9,40 @@ function CharSearch({ onGuess }) {
     );
 
     const handleClickName = (name) => {
-        console.log("Clicked name:", name);
         setSearchTerm(name);
         onGuess(name);
-    }
+    };
+    const handleKeyDown = (e) => {
+        if (e.key === "Enter") {
+            onGuess(searchTerm);
+        }
+    };
 
     return (
         <div style={{ width: '800px' }}>
             <input
                 type="text"
+                list="character-names"
                 placeholder="Input character name..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                onKeyDown={(e) => {
-                    if (e.key === "Enter") {
-                        onGuess(searchTerm);
-                    }
-                }}
-                style={{
-                    width: '100%',
-                    height: '100%',
-                    border: 'none',
-                    outline: 'none',
-                    borderRadius: "25px",
-                    background: 'transparent',
-                    padding: '8px',
-                    textAlign: 'center',
-                }}
+                onKeyDown={handleKeyDown}
+            />
+            <datalist id="character-names">
+                {characterNames.map((name, index) => (
+                    <option key={index} value={name} />
+                ))}
+            </datalist>
+            style={{
+                width: '100%',
+                height: '100%',
+                border: 'none',
+                outline: 'none',
+                borderRadius: "25px",
+                background: 'transparent',
+                padding: '8px',
+                textAlign: 'center',
+            }}
             />
             {searchTerm && (
                 <ul
