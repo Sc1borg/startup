@@ -78,23 +78,3 @@ footer {
     font-size: 25px;
     margin:auto;
 }
-.guess {
-    display: flex;
-    margin:auto;
-    width: 800px;
-    height: 125px;
-    align-items: center;
-    text-align: center;
-    margin-top: 1%;
-}
-.littlebox {
-    display: flex;
-    background-color: grey;
-    width: 125px;
-    height: 125px;
-    border-radius: 25px;
-    margin: auto;
-    font-size:x-large;
-    align-items: center;
-    justify-content: center;
-}
