@@ -11,10 +11,16 @@ function CharSearch({ onGuess }) {
     const handleClickName = (name) => {
         setSearchTerm(name);
         onGuess(name);
-    };
+    }
     const handleKeyDown = (e) => {
         if (e.key === "Enter") {
-            onGuess(searchTerm);
+            if (filteredCharacters.length > 0) {
+                const topMatch = filteredCharacters[0];
+                setSearchTerm(topMatch);
+                onGuess(topMatch);
+            } else {
+                onGuess(searchTerm);
+            }
         }
     };
 
@@ -27,24 +33,18 @@ function CharSearch({ onGuess }) {
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 onKeyDown={handleKeyDown}
+                style={{
+                    width: '100%',
+                    height: '100%',
+                    border: 'none',
+                    outline: 'none',
+                    borderRadius: "25px",
+                    background: 'transparent',
+                    padding: '8px',
+                    textAlign: 'center',
+                }}
             />
-            <datalist id="character-names">
-                {characterNames.map((name, index) => (
-                    <option key={index} value={name} />
-                ))}
-            </datalist>
-            style={{
-                width: '100%',
-                height: '100%',
-                border: 'none',
-                outline: 'none',
-                borderRadius: "25px",
-                background: 'transparent',
-                padding: '8px',
-                textAlign: 'center',
-            }}
-            />
-            {searchTerm && (
+            {searchTerm && filteredCharacters.length > 0 && (
                 <ul
                     style={{
                         listStyle: 'none',

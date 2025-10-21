@@ -10,8 +10,7 @@ export function Guess() {
   const [schoolRes, setSchoolRes] = useState('');
   const [posRes, setPosRes] = useState('');
   const [numRes, setNumRes] = useState('');
-  const [guessedChar, setGuessedChar] = useState(null);
-
+  const [guesses, setGuesses] = useState([]);
 
   const findCharacterByName = (name) => {
     return characters.find(c => c.name === name);
@@ -26,12 +25,14 @@ export function Guess() {
     console.log(dailyChar === guessedCharacter);
     if (!guessedCharacter) return;
 
-    setGuessedChar(guessedCharacter);
+    const correctness = {
+      name: guessedCharacter.name === dailyChar.name,
+      school: guessedCharacter.school === dailyChar.school,
+      position: guessedCharacter.position === dailyChar.position,
+      number: guessedCharacter.number === dailyChar.number
+    };
 
-    setNameRes(guessedCharacter.name === dailyChar.name ? 'green' : 'red')
-    setSchoolRes(guessedCharacter.school === dailyChar.school ? 'green' : 'red')
-    setPosRes(guessedCharacter.position === dailyChar.position ? 'green' : 'red')
-    setNumRes(guessedCharacter.number === dailyChar.number ? 'green' : 'red')
+    setGuesses(prevGuesses => [{ character: guessedCharacter, correctness }, ...prevGuesses]);
 
   };
 
@@ -56,17 +57,27 @@ export function Guess() {
         </span>
       </main>
       <div className="categories"><CharSearch onGuess={handleGuess} /></div>
-      {guessedChar ? (
-        <>
-      <div className="guess">
-        <div className="littlebox"style={{backgroundColor:nameRes}}>{guessedChar.photo}</div>
-        <div className="littlebox"style={{backgroundColor:nameRes}}>{guessedChar.name}</div>
-        <div className="littlebox"style={{backgroundColor:schoolRes}}>{guessedChar.school}</div>
-        <div className="littlebox"style={{backgroundColor:posRes}}>{guessedChar.position}</div>
-        <div className="littlebox"style={{backgroundColor:numRes}}>{guessedChar.number}</div>
+      <div>
+        {guesses.length > 0 && guesses.map((guess, index) => (
+          <div key={index} className="guess" style={{ display: 'flex', marginBottom: '10px' }}>
+            <div className="littlebox" style={{ backgroundColor: guess.correctness.name ? 'green' : 'red' }}>
+              <img src={guess.character.photo} alt={guess.character.name} width="50" />
+            </div>
+            <div className="littlebox" style={{ backgroundColor: guess.correctness.name ? 'green' : 'red' }}>
+              {guess.character.name}
+            </div>
+            <div className="littlebox" style={{ backgroundColor: guess.correctness.school ? 'green' : 'red' }}>
+              {guess.character.school}
+            </div>
+            <div className="littlebox" style={{ backgroundColor: guess.correctness.position ? 'green' : 'red' }}>
+              {guess.character.position}
+            </div>
+            <div className="littlebox" style={{ backgroundColor: guess.correctness.number ? 'green' : 'red' }}>
+              {guess.character.number}
+            </div>
+          </div>
+        ))}
       </div>
-      </>
-      ) : (null)}
     </div>
   );
 }
