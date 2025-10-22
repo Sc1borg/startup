@@ -1,4 +1,3 @@
-import React, { useState, useEffect } from 'react';
 import quotes from "./characterQuotes.json"
 
 export default function getDailyQuote() {

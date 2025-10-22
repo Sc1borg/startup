@@ -101,10 +101,10 @@ For this deliverable I did the following:
 
 ## 🚀 React part 2: Reactivity deliverable
 
-For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
+For this deliverable I did the following:
 
-- [ ] **All functionality implemented or mocked out** - I did not complete this part of the deliverable.
-- [ ] **Hooks** - I did not complete this part of the deliverable.
+- [x] **All functionality implemented or mocked out** - All of my web pages are functional! some are a little bit less because of the sheer amount of database that they need, but I'm feeling pretty proud of it!
+- [x] **Hooks** - I use useState on every page, and I think I use useEffect on some of them
 
 ## 🚀 Service deliverable
 
