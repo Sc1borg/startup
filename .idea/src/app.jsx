@@ -15,37 +15,39 @@ export default function App() {
   const [authState, setAuthState] = React.useState(currentAuthState);
   return (
     <BrowserRouter>
-        <div className="body">
-            <nav className ="topnav">
-                <div><NavLink className='buttonheaderbutton' to='/'>Main</NavLink></div>
-                <div><NavLink className="buttonheaderbutton" to="wordle">Wordle</NavLink></div>
-                <div><NavLink className="buttonheaderbutton" to="quote">Quote</NavLink></div>
-                <div><NavLink className="buttonheaderbutton" to="emoji">Emoji</NavLink></div>
-                <div className = "login">
-                    <div><NavLink className="buttonheaderbutton" to="login">User</NavLink></div>
-                </div>
-            </nav>
-                <main><Routes>
-                    <Route path='/' element={<Guess />} exact />
-                    <Route path='/wordle' element={<Wordle />} />
-                    <Route path='/quote' element={<Quote />} />
-                    <Route path='/emoji' element={<Emoji />} />
-                    <Route path='/login' element={
-                      <Login
-                        userName={userName}
-                        authState={authState}
-                        onAuthChange={(userName, authState) => {
-                          setAuthState(authState);
-                          setUserName(userName);
-                        }}
-                        />}
-                      />
-                    <Route path='*' element={<NotFound />} />
-                    </Routes>
-                </main>
-        <footer><a className="footerlink" href = "https://www.youtube.com/watch?v=dQw4w9WgXcQ">Real Time communication here</a></footer>
-    </div>
-  </BrowserRouter>);
+      <header>
+        <nav className="topnav">
+          <div><NavLink className='buttonheaderbutton' to='/'>Main</NavLink></div>
+          <div><NavLink className="buttonheaderbutton" to="wordle">Wordle</NavLink></div>
+          <div><NavLink className="buttonheaderbutton" to="quote">Quote</NavLink></div>
+          <div><NavLink className="buttonheaderbutton" to="emoji">Emoji</NavLink></div>
+          <div className="login">
+            <div><NavLink className="buttonheaderbutton" to="login">User</NavLink></div>
+          </div>
+        </nav>
+      </header>
+      <div className="body">
+        <main><Routes>
+          <Route path='/' element={<Guess />} exact />
+          <Route path='/wordle' element={<Wordle />} />
+          <Route path='/quote' element={<Quote />} />
+          <Route path='/emoji' element={<Emoji />} />
+          <Route path='/login' element={
+            <Login
+              userName={userName}
+              authState={authState}
+              onAuthChange={(userName, authState) => {
+                setAuthState(authState);
+                setUserName(userName);
+              }}
+            />}
+          />
+          <Route path='*' element={<NotFound />} />
+        </Routes>
+        </main>
+        <footer><a className="footerlink" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Real Time communication here</a></footer>
+      </div>
+    </BrowserRouter>);
 }
 function NotFound() {
   return <main className="box">404: Return to sender. Address unknown.</main>;

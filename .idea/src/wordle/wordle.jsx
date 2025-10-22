@@ -92,13 +92,11 @@ export function Wordle() {
   return (
     <div>
       <div className="box">
-        <header>
-          <h1>HAIKYUUDLE</h1>
-          <h2>Wordle</h2>
-          <h2>Eric Jensen</h2>
-          <p><a href="https://github.com/Sc1borg/startup/">GitHub repo</a></p>
-          <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Statistics(placeholder)</a>
-        </header>
+        <h1>HAIKYUUDLE</h1>
+        <h2>Wordle</h2>
+        <h2>Eric Jensen</h2>
+        <p><a href="https://github.com/Sc1borg/startup/">GitHub repo</a></p>
+        <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Statistics(placeholder)</a>
       </div>
       <div className='wordle' style={{ width: `${boxSize * numLetters}px` }}>
         {Array(6).fill().map((_, rowIndex) => (
@@ -107,6 +105,7 @@ export function Wordle() {
               <div
                 key={colIndex}
                 className='wordleBox'
+                style={{ fontSize: "20px", display: "flex", fontWeight: "bold", justifyContent: "center", alignItems: "center" }}
                 ref={(el) => (boxesCounter.current[`${rowIndex}-${colIndex}`] = el)}
               ></div>
             ))}

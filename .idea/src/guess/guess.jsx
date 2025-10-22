@@ -7,20 +7,24 @@ import "./guess.css"
 
 export function Guess() {
   const [guesses, setGuesses] = useState([]);
+  const [gameOver, setGameOver] = useState(false);
 
   const findCharacterByName = (name) => {
     return characters.find(c => c.name === name);
   };
 
   const handleGuess = (name) => {
+    if (gameOver) return;
     const dailyCharName = getDailyChar();
     const dailyChar = findCharacterByName(dailyCharName);
 
     const guessedCharacter = findCharacterByName(name);
-    console.log(guessedCharacter.name);
-    console.log(dailyChar === guessedCharacter);
     if (!guessedCharacter) return;
 
+    console.log(guesses.length)
+    if (guessedCharacter.name === dailyCharName || guesses.length >= 4) {
+      setGameOver(true);
+    }
     const correctness = {
       name: guessedCharacter.name === dailyChar.name,
       school: guessedCharacter.school === dailyChar.school,
@@ -35,13 +39,11 @@ export function Guess() {
   return (
     <div>
       <div className="box">
-        <header>
           <h1 style={{ marginTop: "15px" }}>HAIKYUUDLE</h1>
           <h2>Guessing</h2>
           <h2>Eric Jensen</h2>
           <p><a href="https://github.com/Sc1borg/startup/">GitHub repo</a></p>
           <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Statistics(placeholder)</a>
-        </header>
       </div>
       <main>
         <span className="categories">
