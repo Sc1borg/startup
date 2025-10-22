@@ -1,0 +1,27 @@
+.wordleRow {
+    display: flex;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+}
+
+.wordleBox {
+    margin: auto;
+    margin: 2.5px;
+    border-radius: 10px;
+    background-color: white;
+    padding: 20px;
+    width: 60px;
+    height: 60px;
+}
+
+.wordle {
+    background-color: grey;
+    margin: auto;
+    margin-top: 25px;
+    border-radius: 25px;
+    padding: 5px;
+    height: 400x;
+    justify-content: center;
+    align-items: center;
+}
