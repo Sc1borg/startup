@@ -1,0 +1,16 @@
+.bigBox {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    border-radius: 25px;
+    background-color: grey;
+    padding: 40px;
+    width: 600px;
+    height: 400px;
+}
+
+.quote {
+    margin-top: 20px;
+}

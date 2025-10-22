@@ -1,86 +1,86 @@
 [
- {
-    "photo": "we'll get there",
-    "name": "Daichi Sawamura",
-    "school": "Karasuno",
-    "position": "Opposite",
-    "number": "1"
- },
- {
-    "photo": "we'll get there",
-    "name": "Koshi Sugawara",
-    "school": "Karasuno",
-    "position": "Setter",
-    "number": "2"
- },
- {
-    "photo": "we'll get there",
-    "name": "Asahi Azumane",
-    "school": "Karasuno",
-    "position": "Outside Hitter",
-    "number": "3"
- },
- {
-    "photo": "we'll get there",
-    "name": "Yu Nishinoya",
-    "school": "Karasuno",
-    "position": "Libero",
-    "number": "4"
- },
- {
-    "photo": "we'll get there",
-    "name": "Ryunosuke Tanaka",
-    "school": "Karasuno",
-    "position": "Outside Hitter",
-    "number": "5"
- },
- {
-    "photo": "we'll get there",
-    "name": "Chikara Ennoshita",
-    "school": "Karasuno",
-    "position": "Outside Hitter",
-    "number": "6"
- },
- {
-    "photo": "we'll get there",
-    "name": "Hisashi Kinoshita",
-    "school": "Karasuno",
-    "position": "Outside Hitter",
-    "number": "7"
- },
- {
-    "photo": "we'll get there",
-    "name": "Kazuhito Narita",
-    "school": "Karasuno",
-    "position": "Middle Blocker",
-    "number": "8"
- },
- {
-    "photo": "we'll get there",
-    "name": "Tobio Kageyama",
-    "school": "Karasuno",
-    "position": "Setter",
-    "number": "9"
- },
- {
-    "photo": "we'll get there",
-    "name": "Shoyo Hinata",
-    "school": "Karasuno",
-    "position": "Middle Blocker",
-    "number": "10"
- },
- {
-    "photo": "we'll get there",
-    "name": "Kei Tsukishima",
-    "school": "Karasuno",
-    "position": "Middle Blocker",
-    "number": "11"
- },
- {
-    "photo": "we'll get there",
-    "name": "Tadashi Yamaguchi",
-    "school": "Karasuno",
-    "position": "Middle Blocker",
-    "number": "12"
- }
+   {
+      "photo": "we'll get there",
+      "name": "Daichi Sawamura",
+      "school": "Karasuno",
+      "position": "Opposite",
+      "number": "1"
+   },
+   {
+      "photo": "we'll get there",
+      "name": "Koshi Sugawara",
+      "school": "Karasuno",
+      "position": "Setter",
+      "number": "2"
+   },
+   {
+      "photo": "we'll get there",
+      "name": "Asahi Azumane",
+      "school": "Karasuno",
+      "position": "Outside Hitter",
+      "number": "3"
+   },
+   {
+      "photo": "we'll get there",
+      "name": "Yu Nishinoya",
+      "school": "Karasuno",
+      "position": "Libero",
+      "number": "4"
+   },
+   {
+      "photo": "we'll get there",
+      "name": "Ryunosuke Tanaka",
+      "school": "Karasuno",
+      "position": "Outside Hitter",
+      "number": "5"
+   },
+   {
+      "photo": "we'll get there",
+      "name": "Chikara Ennoshita",
+      "school": "Karasuno",
+      "position": "Outside Hitter",
+      "number": "6"
+   },
+   {
+      "photo": "we'll get there",
+      "name": "Hisashi Kinoshita",
+      "school": "Karasuno",
+      "position": "Outside Hitter",
+      "number": "7"
+   },
+   {
+      "photo": "we'll get there",
+      "name": "Kazuhito Narita",
+      "school": "Karasuno",
+      "position": "Middle Blocker",
+      "number": "8"
+   },
+   {
+      "photo": "we'll get there",
+      "name": "Tobio Kageyama",
+      "school": "Karasuno",
+      "position": "Setter",
+      "number": "9"
+   },
+   {
+      "photo": "we'll get there",
+      "name": "Shoyo Hinata",
+      "school": "Karasuno",
+      "position": "Middle Blocker",
+      "number": "10"
+   },
+   {
+      "photo": "we'll get there",
+      "name": "Kei Tsukishima",
+      "school": "Karasuno",
+      "position": "Middle Blocker",
+      "number": "11"
+   },
+   {
+      "photo": "we'll get there",
+      "name": "Tadashi Yamaguchi",
+      "school": "Karasuno",
+      "position": "Middle Blocker",
+      "number": "12"
+   }
 ]
