@@ -6,10 +6,6 @@ import "./guess.css"
 
 
 export function Guess() {
-  const [nameRes, setNameRes] = useState('');
-  const [schoolRes, setSchoolRes] = useState('');
-  const [posRes, setPosRes] = useState('');
-  const [numRes, setNumRes] = useState('');
   const [guesses, setGuesses] = useState([]);
 
   const findCharacterByName = (name) => {

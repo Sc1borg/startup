@@ -9,14 +9,14 @@ function CharSearch({ onGuess }) {
     );
 
     const handleClickName = (name) => {
-        setSearchTerm(name);
+        setSearchTerm("");
         onGuess(name);
     }
     const handleKeyDown = (e) => {
         if (e.key === "Enter") {
             if (filteredCharacters.length > 0) {
                 const topMatch = filteredCharacters[0];
-                setSearchTerm(topMatch);
+                setSearchTerm("");
                 onGuess(topMatch);
             } else {
                 onGuess(searchTerm);
