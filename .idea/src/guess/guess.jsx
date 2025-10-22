@@ -21,8 +21,11 @@ export function Guess() {
     const guessedCharacter = findCharacterByName(name);
     if (!guessedCharacter) return;
 
-    console.log(guesses.length)
-    if (guessedCharacter.name === dailyCharName || guesses.length >= 4) {
+    if (guessedCharacter.name === dailyCharName) {
+      setGameOver(true);
+      alert("Congratulations");
+    }
+    if (guesses.length >= 4) {
       setGameOver(true);
     }
     const correctness = {
@@ -39,13 +42,14 @@ export function Guess() {
   return (
     <div>
       <div className="box">
-          <h1 style={{ marginTop: "15px" }}>HAIKYUUDLE</h1>
-          <h2>Guessing</h2>
-          <h2>Eric Jensen</h2>
-          <p><a href="https://github.com/Sc1borg/startup/">GitHub repo</a></p>
-          <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Statistics(placeholder)</a>
+        <h1 style={{ marginTop: "15px" }}>HAIKYUUDLE</h1>
+        <h2>Guessing</h2>
+        <h2>Eric Jensen</h2>
+        <p><a href="https://github.com/Sc1borg/startup/">GitHub repo</a></p>
+        <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Statistics(placeholder)</a>
       </div>
       <main>
+        <div className="categories"><CharSearch onGuess={handleGuess} /></div>
         <span className="categories">
           <div className="id">Photo</div>
           <div className="id">Name</div>
@@ -54,7 +58,6 @@ export function Guess() {
           <div className="id">Number</div>
         </span>
       </main>
-      <div className="categories"><CharSearch onGuess={handleGuess} /></div>
       <div>
         {guesses.length > 0 && guesses.map((guess, index) => (
           <div key={index} className="guess" style={{ display: 'flex', marginBottom: '10px' }}>

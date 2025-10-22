@@ -1,0 +1,18 @@
+.emoji {
+    margin: auto;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 35px;
+}
+
+
+.guesses {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 800px;
+    margin: auto;
+}
