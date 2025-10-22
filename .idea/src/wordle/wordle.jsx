@@ -51,9 +51,6 @@ export function Wordle() {
           setCurrentRow(currentRow + 1);
           setCurrentCol(0);
         }
-        else {
-          console.log("Invalid Guess");
-        }
       }
     };
 
@@ -67,14 +64,14 @@ export function Wordle() {
         alert("Congratulations!");
       }
       for (let i = 0; i < name.length; i++) {
-        const boxRef = boxesCounter.current[`${currentRow}-${i}`];
-        if (boxRef) {
+        const boxCounter = boxesCounter.current[`${currentRow}-${i}`];
+        if (boxCounter) {
           if (name[i].toLowerCase() === dailyCharName[i]) {
-            boxRef.style.backgroundColor = 'green';
+            boxCounter.style.backgroundColor = 'green';
           } else if (dailyCharName.includes(name[i].toLowerCase())) {
-            boxRef.style.backgroundColor = 'yellow';
+            boxCounter.style.backgroundColor = 'yellow';
           } else {
-            boxRef.style.backgroundColor = 'gray';
+            boxCounter.style.backgroundColor = 'gray';
           }
         }
       }
@@ -98,15 +95,18 @@ export function Wordle() {
         <p><a href="https://github.com/Sc1borg/startup/">GitHub repo</a></p>
         <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Statistics(placeholder)</a>
       </div>
-      <div className='wordle' style={{ width: `${boxSize * numLetters}px` }}>
+      {/* This dynamically sets the width of the backdrop so it doesn't look weird */}
+      <div className='wordle' style={{ width: `${boxSize * numLetters + 50}px` }}>
+        {/* Remember that it lists rows first not columns */}
         {Array(6).fill().map((_, rowIndex) => (
           <div className='wordleRow' key={rowIndex}>
+            {/* This is the columns which is why I use numLetters */}
             {Array(numLetters).fill().map((_, colIndex) => (
               <div
                 key={colIndex}
                 className='wordleBox'
                 style={{ fontSize: "20px", display: "flex", fontWeight: "bold", justifyContent: "center", alignItems: "center" }}
-                ref={(el) => (boxesCounter.current[`${rowIndex}-${colIndex}`] = el)}
+                ref={(element) => (boxesCounter.current[`${rowIndex}-${colIndex}`] = element)}
               ></div>
             ))}
           </div>
