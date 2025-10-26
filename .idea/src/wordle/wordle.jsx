@@ -58,6 +58,16 @@ export function Wordle() {
       return characters.find(c => c === name);
     };
 
+    function getCount(name, letter) {
+      let count = 0;
+      for (let i = 0; i < name.length; i++) {
+        if (name[i] === letter) {
+          count++;
+        }
+      }
+      return count;
+    }
+
     const handleGuess = (name) => {
       if (name.toLowerCase() === dailyCharName) {
         setWon(true);
@@ -69,7 +79,17 @@ export function Wordle() {
           if (name[i].toLowerCase() === dailyCharName[i]) {
             boxCounter.style.backgroundColor = 'green';
           } else if (dailyCharName.includes(name[i].toLowerCase())) {
-            boxCounter.style.backgroundColor = 'yellow';
+            let letterCount = getCount(name.slice(0, i), name[i]);
+            if (letterCount > 0) {
+              let answerCount = getCount(dailyCharName, name[i]);
+              if (answerCount > letterCount) {
+                boxCounter.style.backgroundColor = 'yellow';
+              } else {
+                boxCounter.style.backgroundColor = 'gray';
+              }
+            } else {
+              boxCounter.style.backgroundColor = 'yellow';
+            }
           } else {
             boxCounter.style.backgroundColor = 'gray';
           }
