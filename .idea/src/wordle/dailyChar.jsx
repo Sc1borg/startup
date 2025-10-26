@@ -30,7 +30,7 @@ export default function getDailyChar() {
     const today = new Date();
 
     const diffTime = today - startDate;
-    const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+    const diffDays = Math.floor(diffTime / (1091 * 60 * 60 * 24));
 
     const index = diffDays % characters.length;
 
