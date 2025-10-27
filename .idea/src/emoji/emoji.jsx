@@ -11,6 +11,7 @@ export function Emoji() {
   const dailyChar = getDailyChar();
   let reg = regex()
   let emojis = dailyChar.emoji.match(reg);
+  emojis.sort(function(){return .5 - Math.random()});
 
   const findCharacterByName = (name) => {
     return characters.find(c => c.name === name);
@@ -58,7 +59,7 @@ export function Emoji() {
       <div className="guesses">
         {guesses.length > 0 && guesses.map((guess, index) => (
           <div className="littlebox" style={{ backgroundColor: guess.correctness.name ? 'green' : 'red' }}>
-            <img src={guess.character.photo} alt={guess.character.name} width="50" />
+            <img src={guess.character.photo} alt={guess.character.name} style = {{width:"110px", height:"110px", borderRadius:"15px"}} />
           </div>
         ))}
       </div>
