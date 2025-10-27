@@ -3,10 +3,14 @@ import "./emoji.css";
 import CharSearch from "../guess/charSearch";
 import getDailyChar from "../guess/dailyChar";
 import characters from "../guess/character_data.json";
+import regex from "emoji-regex"
 
 export function Emoji() {
   const [guesses, setGuesses] = useState([]);
   const [gameOver, setGameOver] = useState(false);
+  const dailyChar = getDailyChar();
+  let reg = regex()
+  let emojis = dailyChar.emoji.match(reg);
 
   const findCharacterByName = (name) => {
     return characters.find(c => c.name === name);
@@ -14,13 +18,12 @@ export function Emoji() {
 
   const handleGuess = (name) => {
     if (gameOver) return;
-    const dailyCharName = getDailyChar();
-    const dailyChar = findCharacterByName(dailyCharName);
+
 
     const guessedCharacter = findCharacterByName(name);
     if (!guessedCharacter) return;
 
-    if (guessedCharacter.name === dailyCharName) {
+    if (guessedCharacter.name === dailyChar.name) {
       setGameOver(true);
       alert("Congratulations");
     }
@@ -45,17 +48,17 @@ export function Emoji() {
         <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Statistics(placeholder)</a>
       </div>
       <div className='categories'>
-        <div className='emoji'>🐦‍⬛</div>
-        <div className='emoji'>🏐</div>
-        <div className='emoji'>🍙</div>
-        <div className='emoji'>🚲</div>
+        <div className='emoji'>{emojis[0]}</div>
+        <div className='emoji'>{emojis[1]}</div>
+        <div className='emoji'>{emojis[2]}</div>
+        <div className='emoji'>{emojis[3]}</div>
       </div>
 
       <div className="categories"><CharSearch onGuess={handleGuess} /></div>
       <div className="guesses">
         {guesses.length > 0 && guesses.map((guess, index) => (
-            <div className="littlebox" style={{ backgroundColor: guess.correctness.name ? 'green' : 'red' }}>
-              <img src={guess.character.photo} alt={guess.character.name} width="50" />
+          <div className="littlebox" style={{ backgroundColor: guess.correctness.name ? 'green' : 'red' }}>
+            <img src={guess.character.photo} alt={guess.character.name} width="50" />
           </div>
         ))}
       </div>

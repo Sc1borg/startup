@@ -4,83 +4,175 @@
       "name": "Daichi Sawamura",
       "school": "Karasuno",
       "position": "Opposite",
-      "number": "1"
+      "number": "1",
+      "emoji": "🐦‍⬛🏐🍙🚲"
    },
    {
       "photo": "we'll get there",
       "name": "Koshi Sugawara",
       "school": "Karasuno",
       "position": "Setter",
-      "number": "2"
+      "number": "2",
+      "emoji": "🐦‍⬛🏐🍙🚲"
    },
    {
       "photo": "we'll get there",
       "name": "Asahi Azumane",
       "school": "Karasuno",
       "position": "Outside Hitter",
-      "number": "3"
+      "number": "3",
+      "emoji": "🐦‍⬛🏐🍙🚲"
    },
    {
       "photo": "we'll get there",
       "name": "Yu Nishinoya",
       "school": "Karasuno",
       "position": "Libero",
-      "number": "4"
+      "number": "4",
+      "emoji": "🐦‍⬛🏐🍙🚲"
    },
    {
       "photo": "we'll get there",
       "name": "Ryunosuke Tanaka",
       "school": "Karasuno",
       "position": "Outside Hitter",
-      "number": "5"
+      "number": "5",
+      "emoji": "🐦‍⬛🏐🍙🚲"
    },
    {
       "photo": "we'll get there",
       "name": "Chikara Ennoshita",
       "school": "Karasuno",
       "position": "Outside Hitter",
-      "number": "6"
+      "number": "6",
+      "emoji": "🐦‍⬛🏐🍙🚲"
    },
    {
       "photo": "we'll get there",
       "name": "Hisashi Kinoshita",
       "school": "Karasuno",
       "position": "Outside Hitter",
-      "number": "7"
+      "number": "7",
+      "emoji": "🐦‍⬛🏐🍙🚲"
    },
    {
       "photo": "we'll get there",
       "name": "Kazuhito Narita",
       "school": "Karasuno",
       "position": "Middle Blocker",
-      "number": "8"
+      "number": "8",
+      "emoji": "🐦‍⬛🏐🍙🚲"
    },
    {
       "photo": "we'll get there",
       "name": "Tobio Kageyama",
       "school": "Karasuno",
       "position": "Setter",
-      "number": "9"
+      "number": "9",
+      "emoji": "🐦‍⬛🏐🍙🚲"
    },
    {
       "photo": "we'll get there",
       "name": "Shoyo Hinata",
       "school": "Karasuno",
       "position": "Middle Blocker",
-      "number": "10"
+      "number": "10",
+      "emoji": "🐦‍⬛🏐🍙🚲"
    },
    {
       "photo": "we'll get there",
       "name": "Kei Tsukishima",
       "school": "Karasuno",
       "position": "Middle Blocker",
-      "number": "11"
+      "number": "11",
+      "emoji": "🐦‍⬛🏐🍙🚲"
    },
    {
       "photo": "we'll get there",
       "name": "Tadashi Yamaguchi",
       "school": "Karasuno",
       "position": "Middle Blocker",
-      "number": "12"
+      "number": "12",
+      "emoji": "🐦‍⬛🏐🍙🚲"
+   },
+   {
+      "photo": "we'll get there",
+      "name": "Tetsuro Kuroo",
+      "school": "Nekoma",
+      "position": "Middle Blocker",
+      "number": "1",
+      "emoji": "🐦‍⬛🏐🍙🚲"
+   },
+   {
+      "photo": "we'll get there",
+      "name": "Nobuyuki Kai",
+      "school": "Nekoma",
+      "position": "Opposite",
+      "number": "2",
+      "emoji": "🐦‍⬛🏐🍙🚲"
+   },
+   {
+      "photo": "we'll get there",
+      "name": "Morisuke Yaku",
+      "school": "Nekoma",
+      "position": "Libero",
+      "number": "3",
+      "emoji": "🐦‍⬛🏐🍙🚲"
+   },
+   {
+      "photo": "we'll get there",
+      "name": "Taketora Yamamoto",
+      "school": "Nekoma",
+      "position": "Outside Hitter",
+      "number": "4",
+      "emoji": "🐦‍⬛🏐🍙🚲"
+   },
+   {
+      "photo": "we'll get there",
+      "name": "Kenma Kozume",
+      "school": "Nekoma",
+      "position": "Setter",
+      "number": "5",
+      "emoji": "🐦‍⬛🏐🍙🚲"
+   },
+   {
+      "photo": "we'll get there",
+      "name": "Shohei Fukunaga",
+      "school": "Nekoma",
+      "position": "Outside Hitter",
+      "number": "6",
+      "emoji": "🐦‍⬛🏐🍙🚲"
+   },
+   {
+      "photo": "we'll get there",
+      "name": "So Inuoka",
+      "school": "Nekoma",
+      "position": "Opposite",
+      "number": "7",
+      "emoji": "🐦‍⬛🏐🍙🚲"
+   },
+   {
+      "photo": "we'll get there",
+      "name": "Tamahiko Teshiro",
+      "school": "Nekoma",
+      "position": "Setter",
+      "number": "9",
+      "emoji": "🐦‍⬛🏐🍙🚲"
+   },
+   {
+      "photo": "we'll get there",
+      "name": "Lev Haiba",
+      "school": "Nekoma",
+      "position": "Middle Blocker",
+      "number": "11",
+      "emoji": "🐦‍⬛🏐🍙🚲"
+   },
+   {
+      "photo": "we'll get there",
+      "name": "Yuki Shibayama",
+      "school": "Nekoma",
+      "position": "Libero",
+      "number": "12",
+      "emoji": "🐦‍⬛🏐🍙🚲"
    }
 ]

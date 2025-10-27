@@ -15,13 +15,12 @@ export function Guess() {
 
   const handleGuess = (name) => {
     if (gameOver) return;
-    const dailyCharName = getDailyChar();
-    const dailyChar = findCharacterByName(dailyCharName);
+    const dailyChar = getDailyChar();
 
     const guessedCharacter = findCharacterByName(name);
     if (!guessedCharacter) return;
 
-    if (guessedCharacter.name === dailyCharName) {
+    if (guessedCharacter.name === dailyChar.name) {
       setGameOver(true);
       alert("Congratulations");
     }

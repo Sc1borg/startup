@@ -22,7 +22,27 @@ export const characters = [
     "narita",
     "kageyama",
     "tsukishima",
-    "yamaguchi"
+    "yamaguchi",
+    "tetsuro",
+    "kuroo",
+    "nobyuki",
+    "kai",
+    "morisuke",
+    "yaku",
+    "taketora",
+    "yamamoto",
+    "kenma",
+    "kozume",
+    "shohei",
+    "fukunaga",
+    "so",
+    "inuoka",
+    "tamkahiko",
+    "teshiro",
+    "lev",
+    "haiba",
+    "yuki",
+    "shibayama"
 ];
 
 export default function getDailyChar() {

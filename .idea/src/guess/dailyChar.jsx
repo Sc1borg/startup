@@ -1,17 +1,5 @@
 
-const characters = [
-    "Shoyo Hinata",
-    "Ryonosuke Tanaka",
-    "Daichi Sawamura",
-    "Koshi Sugawara",
-    "Yu Nishinoya",
-    "Chikara Ennoshita",
-    "Hisashi Kinoshita",
-    "Kazuhito Narita",
-    "Tobio Kageyama",
-    "Kei Tsukishima",
-    "Tadashi Yamaguchi"
-];
+import characters from "./character_data.json";
 
 export default function getDailyChar() {
     const startDate = new Date('2012-02-20');
