@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import "./quote.css";
 import getDailyQuote from './dailyQuote';
-import quotes from "./characterQuotes.json"
+import quotes from "../guess/character_data.json"
 import CharSearch from '../guess/charSearch';
 
 export function Quote() {
@@ -45,9 +45,9 @@ export function Quote() {
       </div>
       <div className="categories"><CharSearch onGuess={handleGuess} /></div>
       <div className="guesses">
-        {guesses.length > 0 && guesses.map((guess, index) => (
+        {guesses.length > 0 && guesses.map((guess) => (
           <div className="littlebox" style={{ backgroundColor: guess.correctness.name ? 'green' : 'red' }}>
-            <img src={guess.character.photo} alt={guess.character.name} width="50" />
+            <img src={guess.character.photo} alt={guess.character.name} style={{ height: "110px", width: "110px", borderRadius: "15px" }} />
           </div>
         ))}
       </div>

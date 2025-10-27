@@ -66,7 +66,7 @@ export function Guess() {
             I created a "correctness pair" that allows me to remember which pieces were correct even as 
             I move on to new guesses */}
             <div className="littlebox" style={{ backgroundColor: guess.color.name }}>
-              <img src={guess.character.photo} alt={guess.character.name} width="50" style={{height: "110px", width: "110px", borderRadius: "15px"}} />
+              <img src={guess.character.photo} alt={guess.character.name} style={{height: "110px", width: "110px", borderRadius: "15px"}} />
             </div>
             {/* The name and photo use the same check because they should always be the same */}
             <div className="littlebox" style={{ backgroundColor: guess.color.name }}>
@@ -83,6 +83,7 @@ export function Guess() {
             {/* With this one the blue and yellow might be a bit confusing, I'll need to add an explanation thingybob */}
             <div className="littlebox" style={{ backgroundColor: guess.color.number }}>
               {guess.character.number}
+              {guess.color.number === 'green' ? "" : guess.color.number === 'lightblue' ? "\n ↑↑" : "\n ↓↓"}
             </div>
           </div>
         )) : null}

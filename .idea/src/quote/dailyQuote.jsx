@@ -1,4 +1,4 @@
-import quotes from "./characterQuotes.json"
+import quotes from "../guess/character_data.json"
 
 export default function getDailyQuote() {
     const startDate = new Date('2012-02-20');
