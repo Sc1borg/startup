@@ -13,6 +13,13 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 800px;
+    width: 50%;
+    margin: auto;
+}
+
+.blank {
+    width: 40px;
+    height: 40px;
+    display: flex;
     margin: auto;
 }

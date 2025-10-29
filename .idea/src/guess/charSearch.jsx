@@ -25,7 +25,7 @@ function CharSearch({ onGuess }) {
     };
 
     return (
-        <div style={{ width: '800px' }}>
+        <div style={{width:"100%"}}>
             <input
                 type="text"
                 list="character-names"
@@ -34,31 +34,29 @@ function CharSearch({ onGuess }) {
                 onChange={(e) => setSearchTerm(e.target.value)}
                 onKeyDown={handleKeyDown}
                 style={{
-                    width: '100%',
-                    height: '100%',
                     border: 'none',
                     outline: 'none',
-                    borderRadius: "25px",
                     background: 'transparent',
                     padding: '8px',
                     textAlign: 'center',
+                    width: '100%'
                 }}
             />
             {searchTerm && filteredCharacters.length > 0 && (
                 <ul
                     style={{
                         listStyle: 'none',
-                        margin: 0,
+                        margin: 'auto',
+                        marginLeft: '.5%',
                         padding: 0,
                         border: '1px solid #ccc',
                         maxHeight: '150px',
                         overflowY: 'auto',
                         borderRadius: "8px",
+                        width: '49%',
                         position: 'absolute',
-                        width: '800px',
                         backgroundColor: 'black',
-                        color: 'white',
-                        zIndex: 1,
+                        color: 'white'
                     }}
                 >
                     {filteredCharacters.length > 0 ? (

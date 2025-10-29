@@ -11,7 +11,7 @@ export function Emoji() {
   const dailyChar = getDailyChar();
   let reg = regex()
   let emojis = dailyChar.emoji.match(reg);
-  emojis.sort(function(){return .5 - Math.random()});
+  emojis.sort(function () { return .5 - Math.random() });
 
   const findCharacterByName = (name) => {
     return characters.find(c => c.name === name);
@@ -50,16 +50,16 @@ export function Emoji() {
       </div>
       <div className='categories'>
         <div className='emoji'>{emojis[0]}</div>
-        <div className='emoji'>{emojis[1]}</div>
-        <div className='emoji'>{emojis[2]}</div>
-        <div className='emoji'>{emojis[3]}</div>
+        {guesses.length > 0 ? <div className='emoji'>{emojis[1]}</div> : <div className='blank'><img src='https://d1n4g61i0rktvy.cloudfront.net/data/gallery/assets/hidden-clue.webp'></img></div>}
+        {guesses.length > 1 ? <div className='emoji'>{emojis[2]}</div> : <div className='blank'><img src='https://d1n4g61i0rktvy.cloudfront.net/data/gallery/assets/hidden-clue.webp'></img></div>}
+        {guesses.length > 2 ? <div className='emoji'>{emojis[3]}</div> : <div className='blank'><img src='https://d1n4g61i0rktvy.cloudfront.net/data/gallery/assets/hidden-clue.webp'></img></div>}
       </div>
 
       <div className="categories"><CharSearch onGuess={handleGuess} /></div>
       <div className="guesses">
         {guesses.length > 0 && guesses.map((guess, index) => (
           <div className="littlebox" style={{ backgroundColor: guess.correctness.name ? 'green' : 'red' }}>
-            <img src={guess.character.photo} alt={guess.character.name} style = {{width:"110px", height:"110px", borderRadius:"15px"}} />
+            <img src={guess.character.photo} alt={guess.character.name} style={{ height: "90%", width: "90%", borderRadius: "15px" }} />
           </div>
         ))}
       </div>

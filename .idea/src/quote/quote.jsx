@@ -47,7 +47,7 @@ export function Quote() {
       <div className="guesses">
         {guesses.length > 0 && guesses.map((guess) => (
           <div className="littlebox" style={{ backgroundColor: guess.correctness.name ? 'green' : 'red' }}>
-            <img src={guess.character.photo} alt={guess.character.name} style={{ height: "110px", width: "110px", borderRadius: "15px" }} />
+            <img src={guess.character.photo} alt={guess.character.name} style={{ height: "90%", width: "90%", borderRadius: "15px" }} />
           </div>
         ))}
       </div>

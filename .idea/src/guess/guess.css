@@ -1,7 +1,7 @@
 .guess {
     display: flex;
     margin:auto;
-    width: 800px;
+    width: 50%;
     height: 125px;
     align-items: center;
     text-align: center;
@@ -10,7 +10,7 @@
 .littlebox {
     display: flex;
     background-color: grey;
-    width: 125px;
+    width: 15%;
     height: 125px;
     border-radius: 25px;
     margin: auto;

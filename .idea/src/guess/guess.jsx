@@ -31,7 +31,7 @@ export function Guess() {
       name: guessedCharacter.name === dailyChar.name ? 'green' : 'red',
       school: guessedCharacter.school === dailyChar.school ? 'green' : 'red',
       position: guessedCharacter.position === dailyChar.position ? 'green' : 'red',
-      number: guessedCharacter.number === dailyChar.number ? 'green' : (Math.abs(dailyChar.number - guessedCharacter.number) < 0 ? 'lightblue' : 'yellow')
+      number: guessedCharacter.number === dailyChar.number ? 'green' : (Number(dailyChar.number) > Number(guessedCharacter.number) ? 'lightblue' : 'yellow')
     };
 
 
@@ -66,7 +66,7 @@ export function Guess() {
             I created a "correctness pair" that allows me to remember which pieces were correct even as 
             I move on to new guesses */}
             <div className="littlebox" style={{ backgroundColor: guess.color.name }}>
-              <img src={guess.character.photo} alt={guess.character.name} style={{height: "110px", width: "110px", borderRadius: "15px"}} />
+              <img src={guess.character.photo} alt={guess.character.name} style={{ height: "90%", width: "90%", borderRadius: "15px" }} />
             </div>
             {/* The name and photo use the same check because they should always be the same */}
             <div className="littlebox" style={{ backgroundColor: guess.color.name }}>
