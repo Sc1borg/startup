@@ -1,13 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import CharSearch from './charSearch';
 import getDailyChar from './dailyChar';
 import characters from "./character_data.json"
 import "./guess.css"
+import { AuthState } from '../login/authState';
 
 
-export function Guess() {
+export function Guess(authState) {
   const [guesses, setGuesses] = useState([]);
   const [gameOver, setGameOver] = useState(false);
+  const [highScore, setHighScore] = useState(null);
 
   const findCharacterByName = (name) => {
     return characters.find(c => c.name === name);
@@ -23,7 +25,7 @@ export function Guess() {
           setHighScore(data.highScore);
         });
     }
-  }, [authState === AuthState.Authenticated]);
+  }, [authState]);
 
   const handleGuess = (name) => {
     if (gameOver) return;
