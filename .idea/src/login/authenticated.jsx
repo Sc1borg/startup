@@ -1,14 +1,24 @@
-import React from "react";
-import Button from "react-bootstrap/Button";
-import { useNavigate } from "react-router-dom"
-import './authenticated.css'
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
+
+import Button from 'react-bootstrap/Button';
+
+import './authenticated.css';
 
 export function Authenticated(props) {
     const navigate = useNavigate();
 
     function logout() {
-        localStorage.removeItem('username');
-        props.onLogout();
+        fetch(`/api/auth/logout`, {
+            method: 'DELETE',
+        })
+            .catch(() => {
+                // Logout failed. Assuming offline
+            })
+            .finally(() => {
+                localStorage.removeItem('userName');
+                props.onLogout();
+            });
     }
 
     return (

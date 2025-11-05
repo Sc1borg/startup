@@ -13,6 +13,18 @@ export function Guess() {
     return characters.find(c => c.name === name);
   };
 
+  useEffect(() => {
+    if (authState === AuthState.Authenticated) {
+      fetch('/api/scores', {
+        credentials: 'include',
+      })
+        .then(res => res.json())
+        .then(data => {
+          setHighScore(data.highScore);
+        });
+    }
+  }, [authState === AuthState.Authenticated]);
+
   const handleGuess = (name) => {
     if (gameOver) return;
     const dailyChar = getDailyChar();
@@ -22,10 +34,12 @@ export function Guess() {
 
     if (guessedCharacter.name === dailyChar.name) {
       setGameOver(true);
+      sendScore("/api/score");
       alert("Congratulations");
     }
     if (guesses.length >= 4) {
       setGameOver(true);
+      sendScore("/api/score");
     }
     const color = {
       name: guessedCharacter.name === dailyChar.name ? 'green' : 'red',
@@ -39,6 +53,23 @@ export function Guess() {
 
   };
 
+  async function sendScore(endpoint) {
+    const response = await fetch(endpoint, {
+      method: 'POST',
+      credentials: 'include',
+      body: JSON.stringify({ score: guesses.length }),
+      headers: {
+        'Content-type': 'application/json; charset=UTF-8',
+      },
+    });
+    if (response.ok) {
+      const data = await response.json();
+      console.log('Updated high score:', data.highScore);
+    } else {
+      console.error('Failed to send score', response.status)
+    }
+  }
+
   return (
     <div>
       <div className="box">
@@ -46,7 +77,7 @@ export function Guess() {
         <h2>Guessing</h2>
         <h2>Eric Jensen</h2>
         <p><a href="https://github.com/Sc1borg/startup/">GitHub repo</a></p>
-        <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Statistics(placeholder)</a>
+        {authState === AuthState.Authenticated && highScore !== null && (<div>High Score: {highScore} </div>)}
       </div>
       <main>
         <div className="categories"><CharSearch onGuess={handleGuess} /></div>
