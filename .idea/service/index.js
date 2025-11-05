@@ -80,7 +80,7 @@ apiRouter.get('/scores', verifyAuth, async (req, res) => {
         res.send({ highScore: user.highScore });
         break;
       case "wordle":
-        res.send({ highscore: user.wordleHigh });
+        res.send({ highScore: user.wordleHigh });
         break;
       case "quote":
         res.send({ highScore: user.quoteHigh })
