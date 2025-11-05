@@ -8,6 +8,19 @@ export function Quote() {
   const quote = getDailyQuote()
   const [guesses, setGuesses] = useState([]);
   const [gameOver, setGameOver] = useState(false);
+  const [celebEmoji, setCelebEmoji] = React.useState(null);
+  
+    React.useEffect(() => {
+      fetch("https://emojihub.yurace.pro/api/random/category/smileys-and-people")
+        .then((response) => response.json())
+        .then((data) => {
+          const unicodeStr = data.unicode[0];
+          const hexCode = unicodeStr.replace('U+', '');
+          const codePoint = parseInt(hexCode, 16);
+          setCelebEmoji(String.fromCodePoint(codePoint));
+        })
+        .catch();
+    }, []);
 
   const findCharacterByName = (name) => {
     return quotes.find(c => c.name === name);
@@ -21,7 +34,7 @@ export function Quote() {
 
     if (guessedCharacter.name === quote.name) {
       setGameOver(true);
-      alert("Congratulations");
+      alert(`${celebEmoji} Congratulations! ${celebEmoji}`);
     }
     if (guesses.length >= 4) {
       setGameOver(true);

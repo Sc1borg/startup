@@ -9,6 +9,21 @@ export function Emoji() {
   const [guesses, setGuesses] = useState([]);
   const [gameOver, setGameOver] = useState(false);
   const dailyChar = getDailyChar();
+  const [celebEmoji, setCelebEmoji] = React.useState(null);
+  
+    React.useEffect(() => {
+      fetch("https://emojihub.yurace.pro/api/random/category/smileys-and-people")
+        .then((response) => response.json())
+        .then((data) => {
+          const unicodeStr = data.unicode[0];
+          const hexCode = unicodeStr.replace('U+', '');
+          const codePoint = parseInt(hexCode, 16);
+          setCelebEmoji(String.fromCodePoint(codePoint));
+        })
+        .catch();
+    }, []);
+
+  
   let reg = regex()
   let emojis = dailyChar.emoji.match(reg);
   emojis.sort(function () { return .5 - Math.random() });
@@ -26,7 +41,7 @@ export function Emoji() {
 
     if (guessedCharacter.name === dailyChar.name) {
       setGameOver(true);
-      alert("Congratulations");
+      alert(`${celebEmoji} Congratulations! ${celebEmoji}`);
     }
     if (guesses.length >= 4) {
       setGameOver(true);

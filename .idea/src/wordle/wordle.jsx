@@ -11,6 +11,19 @@ export function Wordle() {
   const dailyCharName = getDailyChar();
   const numLetters = dailyCharName.length;
   const [won, setWon] = useState(false);
+  const [celebEmoji, setCelebEmoji] = React.useState(null);
+  
+    React.useEffect(() => {
+      fetch("https://emojihub.yurace.pro/api/random/category/smileys-and-people")
+        .then((response) => response.json())
+        .then((data) => {
+          const unicodeStr = data.unicode[0];
+          const hexCode = unicodeStr.replace('U+', '');
+          const codePoint = parseInt(hexCode, 16);
+          setCelebEmoji(String.fromCodePoint(codePoint));
+        })
+        .catch();
+    }, []);
 
   useEffect(() => {
     const handleKeyDown = (event) => {
@@ -71,7 +84,7 @@ export function Wordle() {
     const handleGuess = (name) => {
       if (name.toLowerCase() === dailyCharName) {
         setWon(true);
-        alert("Congratulations!");
+        alert(`${celebEmoji} Congratulations! ${celebEmoji}`);
       }
       for (let i = 0; i < name.length; i++) {
         const boxCounter = boxesCounter.current[`${currentRow}-${i}`];
