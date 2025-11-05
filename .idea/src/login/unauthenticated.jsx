@@ -18,8 +18,8 @@ export function Unauthenticated(props) {
 
   async function loginOrCreate(endpoint) {
     const response = await fetch(endpoint, {
-      method: 'POST',
-      body: JSON.stringify({ email: userName, password: password, highScore: null }),
+      method: 'post',
+      body: JSON.stringify({ email: userName, password: password }),
       headers: {
         'Content-type': 'application/json; charset=UTF-8',
       },
@@ -27,7 +27,6 @@ export function Unauthenticated(props) {
     if (response?.status === 200) {
       localStorage.setItem('userName', userName);
       props.onLogin(userName);
-      console.log("Should have called on login");
     } else {
       const body = await response.json();
       setDisplayError(`⚠ Error: ${body.msg}`);

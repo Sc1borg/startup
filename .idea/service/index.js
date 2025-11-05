@@ -22,7 +22,7 @@ app.use(cookieParser());
 app.use(express.static('public'));
 
 // Router for service endpoints
-var apiRouter = express.Router();
+const apiRouter = express.Router();
 app.use(`/api`, apiRouter);
 
 // CreateAuth a new user
@@ -72,12 +72,12 @@ const verifyAuth = async (req, res, next) => {
 };
 
 // GetScores
-apiRouter.get('/scores', verifyAuth, async (_req, res) => {
-  const user = await findUser('token', _req.cookies[authCookieName]);
+apiRouter.get('/scores', verifyAuth, async (req, res) => {
+  const user = await findUser('token', req.cookies[authCookieName]);
   if (user) {
-    res.send({highScore: user.highScore});
+    res.send({ highScore: user.highScore });
   } else {
-    res.status(401).send({msg: 'Unauthorized'});
+    res.status(401).send({ msg: 'Unauthorized' });
   }
 });
 
@@ -90,7 +90,7 @@ apiRouter.post('/score', verifyAuth, async (req, res) => {
     }
     res.send(user.highScore);
   } else {
-    res.status(401).send({msg: 'Unauthorized'});
+    res.status(401).send({ msg: 'Unauthorized' });
   }
 });
 
