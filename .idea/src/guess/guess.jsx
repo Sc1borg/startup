@@ -3,10 +3,9 @@ import CharSearch from './charSearch';
 import getDailyChar from './dailyChar';
 import characters from "./character_data.json"
 import "./guess.css"
-import { AuthState } from '../login/authState';
 
 
-export function Guess(authState) {
+export function Guess() {
   const [guesses, setGuesses] = useState([]);
   const [gameOver, setGameOver] = useState(false);
   const [highScore, setHighScore] = useState(null);
@@ -22,23 +21,18 @@ export function Guess(authState) {
         setCelebEmoji(String.fromCodePoint(codePoint));
       })
       .catch();
+    try {
+      getScore("/api/scores");
+    } catch (err) {
+      console.error('Error in /scores:', err);
+      res.status(500).send({ msg: 'Server error' });
+    }
+
   }, []);
 
   const findCharacterByName = (name) => {
     return characters.find(c => c.name === name);
   };
-
-  useEffect(() => {
-    if (authState === AuthState.Authenticated) {
-      fetch('/api/scores', {
-        credentials: 'include',
-      })
-        .then(res => res.json())
-        .then(data => {
-          setHighScore(data.highScore);
-        });
-    }
-  }, [authState]);
 
   const handleGuess = (name) => {
     if (gameOver) return;
@@ -50,11 +44,11 @@ export function Guess(authState) {
     if (guessedCharacter.name === dailyChar.name) {
       setGameOver(true);
       sendScore("/api/score");
+      getScore("/api/scores");
       alert(`${celebEmoji} Congratulations! ${celebEmoji}`);
     }
     if (guesses.length >= 4) {
       setGameOver(true);
-      sendScore("/api/score");
     }
     const color = {
       name: guessedCharacter.name === dailyChar.name ? 'green' : 'red',
@@ -72,16 +66,31 @@ export function Guess(authState) {
     const response = await fetch(endpoint, {
       method: 'POST',
       credentials: 'include',
-      body: JSON.stringify({ score: guesses.length }),
+      body: JSON.stringify({ score: guesses.length + 1, type: "guess" }),
       headers: {
         'Content-type': 'application/json; charset=UTF-8',
       },
     });
     if (response.ok) {
       const data = await response.json();
-      console.log('Updated high score:', data.highScore);
     } else {
       console.error('Failed to send score', response.status)
+    }
+  }
+
+  async function getScore(endpoint) {
+    const url = new URL(endpoint, window.location.origin);
+    url.searchParams.append('type', 'guess')
+    const response = await fetch(url, {
+      method: 'get',
+      credentials: 'include',
+      headers: {
+        'Content-type': 'application/json; charset=UTF-8',
+      },
+    });
+    if (response.ok) {
+      const data = await response.json();
+      setHighScore(data.highScore);
     }
   }
 
@@ -92,7 +101,7 @@ export function Guess(authState) {
         <h2>Guessing</h2>
         <h2>Eric Jensen</h2>
         <p><a href="https://github.com/Sc1borg/startup/">GitHub repo</a></p>
-        {authState === AuthState.Authenticated && highScore !== null && (<div>High Score: {highScore} </div>)}
+        {(<div>High Score: {highScore} </div>)}
       </div>
       <main>
         <div className="categories"><CharSearch onGuess={handleGuess} /></div>

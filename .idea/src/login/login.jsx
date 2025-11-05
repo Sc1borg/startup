@@ -18,7 +18,6 @@ export function Login({ userName, authState, onAuthChange }) {
             userName={userName}
             onLogin={(loginUserName) => {
               onAuthChange(loginUserName, AuthState.Authenticated);
-              console.log("auth should have been set to authenticated");
             }}
           />
         )}

@@ -75,7 +75,22 @@ const verifyAuth = async (req, res, next) => {
 apiRouter.get('/scores', verifyAuth, async (req, res) => {
   const user = await findUser('token', req.cookies[authCookieName]);
   if (user) {
-    res.send({ highScore: user.highScore });
+    switch (req.query.type) {
+      case "guess":
+        res.send({ highScore: user.highScore });
+        break;
+      case "wordle":
+        res.send({ highscore: user.wordleHigh });
+        break;
+      case "quote":
+        res.send({ highScore: user.quoteHigh })
+        break;
+      case "emoji":
+        res.send({ highScore: user.emojiHigh })
+        break;
+      default:
+        res.status(400).send({ msg: 'Invalid type parameter' });
+    }
   } else {
     res.status(401).send({ msg: 'Unauthorized' });
   }
@@ -85,12 +100,39 @@ apiRouter.get('/scores', verifyAuth, async (req, res) => {
 apiRouter.post('/score', verifyAuth, async (req, res) => {
   const user = await findUser('token', req.cookies[authCookieName]);
   if (user) {
-    if (user.highScore < req.body.score) {
-      user.highScore = req.body.score;
+    const { type, score } = req.body;
+    if (!type || score == null) {
+      return res.status(400).send({ msg: 'Missing type or score' });
     }
-    res.send(user.highScore);
-  } else {
-    res.status(401).send({ msg: 'Unauthorized' });
+
+    switch (type) {
+      case 'guess':
+        if (user.highScore == null || user.highScore > score) {
+          user.highScore = score;
+        }
+        res.send({ highScore: user.highScore });
+        break;
+      case 'wordle':
+        if (user.wordleHigh == null || user.wordleHigh > score) {
+          user.wordleHigh = score;
+        }
+        res.send({ highScore: user.wordleHigh });
+        break;
+      case 'quote':
+        if (user.quoteHigh == null || user.quoteHigh > score) {
+          user.quoteHigh = score;
+        }
+        res.send({ highScore: user.quoteHigh });
+        break;
+      case 'emoji':
+        if (user.emojiHigh == null || user.emojiHigh > score) {
+          user.emojiHigh = score;
+        }
+        res.send({ highScore: user.emojiHigh });
+        break;
+      default:
+        res.status(400).send({ msg: 'Invalid type' });
+    }
   }
 });
 
@@ -114,6 +156,9 @@ async function createUser(email, password) {
     password: passwordHash,
     token: uuid.v4(),
     highScore: null,
+    wordleHigh: null,
+    quoteHigh: null,
+    emojiHigh: null,
   };
   users.push(user);
 

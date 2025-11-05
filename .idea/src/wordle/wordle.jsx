@@ -12,18 +12,20 @@ export function Wordle() {
   const numLetters = dailyCharName.length;
   const [won, setWon] = useState(false);
   const [celebEmoji, setCelebEmoji] = React.useState(null);
-  
-    React.useEffect(() => {
-      fetch("https://emojihub.yurace.pro/api/random/category/smileys-and-people")
-        .then((response) => response.json())
-        .then((data) => {
-          const unicodeStr = data.unicode[0];
-          const hexCode = unicodeStr.replace('U+', '');
-          const codePoint = parseInt(hexCode, 16);
-          setCelebEmoji(String.fromCodePoint(codePoint));
-        })
-        .catch();
-    }, []);
+  const [highScore, setHighScore] = React.useState(null);
+
+  React.useEffect(() => {
+    fetch("https://emojihub.yurace.pro/api/random/category/smileys-and-people")
+      .then((response) => response.json())
+      .then((data) => {
+        const unicodeStr = data.unicode[0];
+        const hexCode = unicodeStr.replace('U+', '');
+        const codePoint = parseInt(hexCode, 16);
+        setCelebEmoji(String.fromCodePoint(codePoint));
+      })
+      .catch();
+      getScore('/api/scores');
+  }, []);
 
   useEffect(() => {
     const handleKeyDown = (event) => {
@@ -67,10 +69,6 @@ export function Wordle() {
       }
     };
 
-    const findCharacterByName = (name) => {
-      return characters.find(c => c === name);
-    };
-
     function getCount(name, letter) {
       let count = 0;
       for (let i = 0; i < name.length; i++) {
@@ -84,6 +82,8 @@ export function Wordle() {
     const handleGuess = (name) => {
       if (name.toLowerCase() === dailyCharName) {
         setWon(true);
+        sendScore("/api/score");
+        getScore("api/scores");
         alert(`${celebEmoji} Congratulations! ${celebEmoji}`);
       }
       for (let i = 0; i < name.length; i++) {
@@ -117,6 +117,38 @@ export function Wordle() {
     };
   }, [currentRow, currentCol]);
 
+  async function sendScore(endpoint) {
+    const response = await fetch(endpoint, {
+      method: 'POST',
+      credentials: 'include',
+      body: JSON.stringify({ score: currentRow+1, type: "wordle" }),
+      headers: {
+        'Content-type': 'application/json; charset=UTF-8',
+      },
+    });
+    if (response.ok) {
+      const data = await response.json();
+    } else {
+      console.error('Failed to send score', response.status)
+    }
+  }
+
+  async function getScore(endpoint) {
+    const url = new URL(endpoint, window.location.origin);
+    url.searchParams.append('type', 'wordle')
+    const response = await fetch(url, {
+      method: 'get',
+      credentials: 'include',
+      headers: {
+        'Content-type': 'application/json; charset=UTF-8',
+      },
+    });
+    if (response.ok) {
+      const data = await response.json();
+      setHighScore(data.highScore);
+    }
+  }
+
 
 
   return (
@@ -126,7 +158,7 @@ export function Wordle() {
         <h2>Wordle</h2>
         <h2>Eric Jensen</h2>
         <p><a href="https://github.com/Sc1borg/startup/">GitHub repo</a></p>
-        <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Statistics(placeholder)</a>
+        {(<div>High Score: {highScore} </div>)}
       </div>
       {/* This dynamically sets the width of the backdrop so it doesn't look weird */}
       <div className='wordle' style={{ width: `${boxSize * numLetters + 50}px` }}>

@@ -9,18 +9,20 @@ export function Quote() {
   const [guesses, setGuesses] = useState([]);
   const [gameOver, setGameOver] = useState(false);
   const [celebEmoji, setCelebEmoji] = React.useState(null);
-  
-    React.useEffect(() => {
-      fetch("https://emojihub.yurace.pro/api/random/category/smileys-and-people")
-        .then((response) => response.json())
-        .then((data) => {
-          const unicodeStr = data.unicode[0];
-          const hexCode = unicodeStr.replace('U+', '');
-          const codePoint = parseInt(hexCode, 16);
-          setCelebEmoji(String.fromCodePoint(codePoint));
-        })
-        .catch();
-    }, []);
+  const [highScore, setHighScore] = React.useState(null);
+
+  React.useEffect(() => {
+    fetch("https://emojihub.yurace.pro/api/random/category/smileys-and-people")
+      .then((response) => response.json())
+      .then((data) => {
+        const unicodeStr = data.unicode[0];
+        const hexCode = unicodeStr.replace('U+', '');
+        const codePoint = parseInt(hexCode, 16);
+        setCelebEmoji(String.fromCodePoint(codePoint));
+      })
+      .catch();
+      getScore("/api/scores");
+  }, []);
 
   const findCharacterByName = (name) => {
     return quotes.find(c => c.name === name);
@@ -34,6 +36,8 @@ export function Quote() {
 
     if (guessedCharacter.name === quote.name) {
       setGameOver(true);
+      sendScore("/api/score");
+      getScore("api/scores");
       alert(`${celebEmoji} Congratulations! ${celebEmoji}`);
     }
     if (guesses.length >= 4) {
@@ -46,6 +50,38 @@ export function Quote() {
     setGuesses(prevGuesses => [{ character: guessedCharacter, correctness }, ...prevGuesses]);
   };
 
+  async function sendScore(endpoint) {
+    const response = await fetch(endpoint, {
+      method: 'POST',
+      credentials: 'include',
+      body: JSON.stringify({ score: guesses.length + 1, type: "quote" }),
+      headers: {
+        'Content-type': 'application/json; charset=UTF-8',
+      },
+    });
+    if (response.ok) {
+      const data = await response.json();
+    } else {
+      console.error('Failed to send score', response.status)
+    }
+  }
+
+  async function getScore(endpoint) {
+    const url = new URL(endpoint, window.location.origin);
+    url.searchParams.append('type', 'quote')
+    const response = await fetch(url, {
+      method: 'get',
+      credentials: 'include',
+      headers: {
+        'Content-type': 'application/json; charset=UTF-8',
+      },
+    });
+    if (response.ok) {
+      const data = await response.json();
+      setHighScore(data.highScore);
+    }
+  }
+
   return (
     <div>
       <div className="bigBox">
@@ -53,7 +89,7 @@ export function Quote() {
         <h2>Quote</h2>
         <h2>Eric Jensen</h2>
         <p><a href="https://github.com/Sc1borg/startup">GitHub repo</a></p>
-        <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Statistics(placeholder)</a>
+        {(<div>High Score: {highScore} </div>)}
         <p className='quote'>{quote.quote}</p>
       </div>
       <div className="categories"><CharSearch onGuess={handleGuess} /></div>
