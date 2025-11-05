@@ -103,19 +103,19 @@ For this deliverable I did the following:
 
 For this deliverable I did the following:
 
-- [x] **All functionality implemented or mocked out** - All of my web pages are functional! some are a little bit less because of the sheer amount of database that they need, but I'm feeling pretty proud of it!
+- [x] **All functionality implemented or mocked out** - All of my web pages are functional! I'm feeling pretty proud of it!
 - [x] **Hooks** - I use useState on every page, and I think I use useEffect on some of them
 
 ## 🚀 Service deliverable
 
-For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
+For this deliverable I did the following:
 
-- [ ] **Node.js/Express HTTP service** - I did not complete this part of the deliverable.
-- [ ] **Static middleware for frontend** - I did not complete this part of the deliverable.
-- [ ] **Calls to third party endpoints** - I did not complete this part of the deliverable.
-- [ ] **Backend service endpoints** - I did not complete this part of the deliverable.
-- [ ] **Frontend calls service endpoints** - I did not complete this part of the deliverable.
-- [ ] **Supports registration, login, logout, and restricted endpoint** - I did not complete this part of the deliverable.
+- [x] **Node.js/Express HTTP service** - I use node.js in the backend to create endpoints
+- [x] **Static middleware for frontend** - Using express for this
+- [x] **Calls to third party endpoints** - I make a call to get a random emoji for celebration
+- [x] **Backend service endpoints** - I have a login/create, logout, save scores, get scores
+- [x] **Frontend calls service endpoints** - The front end calls the backend!
+- [x] **Supports registration, login, logout, and restricted endpoint** - You can login/logout and some http calls only run when you are logged in
 
 
 ## 🚀 DB deliverable

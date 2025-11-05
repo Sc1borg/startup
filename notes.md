@@ -42,3 +42,6 @@ Setting up Vite and React was pretty simple. If there was a ton of CSS it would 
 ## React Part 2: Reactivity
 
 Dude, react is so cool! I love putting listeners in, and it's crazy the amount of functionality that can be quickly created. and it's all pretty simple. You just need to use react states - oh you can't forget to import those or it will break everything. useEffect is for "side effects" like things that affect other things than just the passed in/out
+
+## Service
+This one was a little tricky. Mostly because I'm really bad at file structure. I feel like I can run the code, but structuring it is so hard! Using node.js is pretty easy. Creating the endpoints might be easier than just in java
