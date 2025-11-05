@@ -65,9 +65,9 @@ export function Emoji() {
       </div>
       <div className='categories'>
         <div className='emoji'>{emojis[0]}</div>
-        {guesses.length > 0 ? <div className='emoji'>{emojis[1]}</div> : <div className='blank'><img src='https://d1n4g61i0rktvy.cloudfront.net/data/gallery/assets/hidden-clue.webp'></img></div>}
-        {guesses.length > 1 ? <div className='emoji'>{emojis[2]}</div> : <div className='blank'><img src='https://d1n4g61i0rktvy.cloudfront.net/data/gallery/assets/hidden-clue.webp'></img></div>}
-        {guesses.length > 2 ? <div className='emoji'>{emojis[3]}</div> : <div className='blank'><img src='https://d1n4g61i0rktvy.cloudfront.net/data/gallery/assets/hidden-clue.webp'></img></div>}
+        {guesses.length > 0 || gameOver ? <div className='emoji'>{emojis[1]}</div> : <div className='blank'><img src='https://d1n4g61i0rktvy.cloudfront.net/data/gallery/assets/hidden-clue.webp'></img></div>}
+        {guesses.length > 1 || gameOver ? <div className='emoji'>{emojis[2]}</div> : <div className='blank'><img src='https://d1n4g61i0rktvy.cloudfront.net/data/gallery/assets/hidden-clue.webp'></img></div>}
+        {guesses.length > 2 || gameOver ? <div className='emoji'>{emojis[3]}</div> : <div className='blank'><img src='https://d1n4g61i0rktvy.cloudfront.net/data/gallery/assets/hidden-clue.webp'></img></div>}
       </div>
 
       <div className="categories"><CharSearch onGuess={handleGuess} /></div>
