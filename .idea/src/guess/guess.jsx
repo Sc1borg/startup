@@ -3,9 +3,10 @@ import CharSearch from './charSearch';
 import getDailyChar from './dailyChar';
 import characters from "./character_data.json"
 import "./guess.css"
+import { AuthState } from '../login/authState';
 
 
-export function Guess() {
+export function Guess(authState) {
   const [guesses, setGuesses] = useState([]);
   const [gameOver, setGameOver] = useState(false);
   const [highScore, setHighScore] = useState(null);
@@ -101,7 +102,7 @@ export function Guess() {
         <h2>Guessing</h2>
         <h2>Eric Jensen</h2>
         <p><a href="https://github.com/Sc1borg/startup/">GitHub repo</a></p>
-        {(<div>High Score: {highScore} </div>)}
+        {authState === AuthState.Authenticated && (<div>High Score: {highScore} </div>)}
       </div>
       <main>
         <div className="categories"><CharSearch onGuess={handleGuess} /></div>

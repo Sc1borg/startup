@@ -16,22 +16,39 @@ export default function App() {
   return (
     <BrowserRouter>
       <header>
+        {console.log(authState)}
         <nav className="topnav">
           <div><NavLink className='buttonheaderbutton' to='/'>Main</NavLink></div>
           <div><NavLink className="buttonheaderbutton" to="wordle">Wordle</NavLink></div>
           <div><NavLink className="buttonheaderbutton" to="quote">Quote</NavLink></div>
           <div><NavLink className="buttonheaderbutton" to="emoji">Emoji</NavLink></div>
           <div className="login">
-            <div><NavLink className="buttonheaderbutton" to="login">User</NavLink></div>
+            <div><NavLink className="buttonheaderbutton" to="login">{authState === AuthState.Authenticated ? (`${userName}`) : ("Login")}</NavLink></div>
           </div>
         </nav>
       </header>
       <div className="body">
         <main><Routes>
-          <Route path='/' element={<Guess />} exact />
-          <Route path='/wordle' element={<Wordle />} />
-          <Route path='/quote' element={<Quote />} />
-          <Route path='/emoji' element={<Emoji />} />
+          <Route path='/' element={
+            <Guess
+              authState={authState}
+            />}
+            exact />
+          <Route path='/wordle' element={
+            <Wordle
+              authState={authState}
+            />}
+          />
+          <Route path='/quote' element={
+            <Quote
+              authState={authState}
+            />}
+          />
+          <Route path='/emoji' element={
+            <Emoji
+              authState={authState}
+            />}
+          />
           <Route path='/login' element={
             <Login
               userName={userName}

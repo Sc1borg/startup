@@ -2,8 +2,9 @@ import React, { useEffect, useState } from 'react';
 import "./wordle.css"
 import getDailyChar from './dailyChar';
 import { characters } from './dailyChar';
+import { AuthState } from '../login/authState';
 
-export function Wordle() {
+export function Wordle({ authState }) {
   const [currentRow, setCurrentRow] = useState(0);
   const [currentCol, setCurrentCol] = useState(0);
   const boxesCounter = React.useRef({});
@@ -24,7 +25,7 @@ export function Wordle() {
         setCelebEmoji(String.fromCodePoint(codePoint));
       })
       .catch();
-      getScore('/api/scores');
+    getScore('/api/scores');
   }, []);
 
   useEffect(() => {
@@ -121,7 +122,7 @@ export function Wordle() {
     const response = await fetch(endpoint, {
       method: 'POST',
       credentials: 'include',
-      body: JSON.stringify({ score: currentRow+1, type: "wordle" }),
+      body: JSON.stringify({ score: currentRow + 1, type: "wordle" }),
       headers: {
         'Content-type': 'application/json; charset=UTF-8',
       },
@@ -149,8 +150,6 @@ export function Wordle() {
     }
   }
 
-
-
   return (
     <div>
       <div className="box">
@@ -158,7 +157,7 @@ export function Wordle() {
         <h2>Wordle</h2>
         <h2>Eric Jensen</h2>
         <p><a href="https://github.com/Sc1borg/startup/">GitHub repo</a></p>
-        {(<div>High Score: {highScore} </div>)}
+        {authState === AuthState.Authenticated && (<div>High Score: {highScore} </div>)}
       </div>
       {/* This dynamically sets the width of the backdrop so it doesn't look weird */}
       <div className='wordle' style={{ width: `${boxSize * numLetters + 50}px` }}>

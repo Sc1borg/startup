@@ -3,8 +3,9 @@ import "./quote.css";
 import getDailyQuote from './dailyQuote';
 import quotes from "../guess/character_data.json"
 import CharSearch from '../guess/charSearch';
+import { AuthState } from '../login/authState';
 
-export function Quote() {
+export function Quote({ authState} ) {
   const quote = getDailyQuote()
   const [guesses, setGuesses] = useState([]);
   const [gameOver, setGameOver] = useState(false);
@@ -21,7 +22,7 @@ export function Quote() {
         setCelebEmoji(String.fromCodePoint(codePoint));
       })
       .catch();
-      getScore("/api/scores");
+    getScore("/api/scores");
   }, []);
 
   const findCharacterByName = (name) => {
@@ -89,7 +90,7 @@ export function Quote() {
         <h2>Quote</h2>
         <h2>Eric Jensen</h2>
         <p><a href="https://github.com/Sc1borg/startup">GitHub repo</a></p>
-        {(<div>High Score: {highScore} </div>)}
+        {authState === AuthState.Authenticated && (<div>High Score: {highScore} </div>)}
         <p className='quote'>{quote.quote}</p>
       </div>
       <div className="categories"><CharSearch onGuess={handleGuess} /></div>

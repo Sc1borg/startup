@@ -4,8 +4,9 @@ import CharSearch from "../guess/charSearch";
 import getDailyChar from "../guess/dailyChar";
 import characters from "../guess/character_data.json";
 import regex from "emoji-regex"
+import { AuthState } from '../login/authState';
 
-export function Emoji() {
+export function Emoji(authState) {
   const [guesses, setGuesses] = useState([]);
   const [gameOver, setGameOver] = useState(false);
   const dailyChar = getDailyChar();
@@ -96,7 +97,7 @@ export function Emoji() {
         <h2>Emoji</h2>
         <h2>Eric Jensen</h2>
         <p><a href="https://github.com/Sc1borg/startup/">GitHub repo</a></p>
-        {(<div>High Score: {highScore} </div>)}
+        {authState === AuthState.Authenticated && (<div>High Score: {highScore} </div>)}
       </div>
       <div className='categories'>
         <div className='emoji'>{emojis[0]}</div>
