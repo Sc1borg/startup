@@ -6,7 +6,7 @@ import characters from "../guess/character_data.json";
 import regex from "emoji-regex"
 import { AuthState } from '../login/authState';
 
-export function Emoji(authState) {
+export function Emoji({ authState }) {
   const [guesses, setGuesses] = useState([]);
   const [gameOver, setGameOver] = useState(false);
   const dailyChar = getDailyChar();

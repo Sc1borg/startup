@@ -6,7 +6,7 @@ import "./guess.css"
 import { AuthState } from '../login/authState';
 
 
-export function Guess(authState) {
+export function Guess({ authState }) {
   const [guesses, setGuesses] = useState([]);
   const [gameOver, setGameOver] = useState(false);
   const [highScore, setHighScore] = useState(null);
