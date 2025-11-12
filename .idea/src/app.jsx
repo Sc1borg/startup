@@ -16,7 +16,6 @@ export default function App() {
   return (
     <BrowserRouter>
       <header>
-        {console.log(authState)}
         <nav className="topnav">
           <div><NavLink className='buttonheaderbutton' to='/'>Main</NavLink></div>
           <div><NavLink className="buttonheaderbutton" to="wordle">Wordle</NavLink></div>

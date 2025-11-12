@@ -77,7 +77,6 @@ apiRouter.get('/scores', verifyAuth, async (req, res) => {
   if (user) {
     switch (req.query.type) {
       case "guess":
-        console.log(user.highScore);
         res.send({ highScore: user.highScore });
         break;
       case "wordle":
