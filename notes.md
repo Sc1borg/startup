@@ -45,3 +45,6 @@ Dude, react is so cool! I love putting listeners in, and it's crazy the amount o
 
 ## Service
 This one was a little tricky. Mostly because I'm really bad at file structure. I feel like I can run the code, but structuring it is so hard! Using node.js is pretty easy. Creating the endpoints might be easier than just in java
+
+## MongoDB
+This might have been the easiest part so far. Using express as middleware makes it really easy to write and retrieve data from MongoDb.

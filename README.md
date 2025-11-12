@@ -120,10 +120,10 @@ For this deliverable I did the following:
 
 ## 🚀 DB deliverable
 
-For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
+For this deliverable I did the following:
 
-- [ ] **Stores data in MongoDB** - I did not complete this part of the deliverable.
-- [ ] **Stores credentials in MongoDB** - I did not complete this part of the deliverable.
+- [x] **Stores data in MongoDB** - I score userData and scores in mongodb
+- [x] **Stores credentials in MongoDB** - Correctly stores authTokens with userdata.
 
 ## 🚀 WebSocket deliverable
 
