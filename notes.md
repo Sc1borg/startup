@@ -16,7 +16,7 @@ I learned how to use Github for the first time. It started with learning how to 
 
 set up an ec2 instance in class
 learned about ip addresses - like mail addresses
-tried to set up a domain name, but I had trouble because route 53 wasn't working for me. I eventually turned to a different company, and I might transfer later.
+tried to set up a domain name, but I had trouble because route 53 wasn't working for me. I eventually turned to a different company, and I might transfer later. chmod to change permissions pwd to get path port 22 is for ssh
 
 ## Caddy
 
@@ -25,6 +25,10 @@ No problems worked just like it said in the [instruction](https://github.com/web
 ## HTML
 
 I struggled at first because I didn't understand how to edit my html files and then deploy them, but once I found out that I didn't need to be in my ssh to edit it, it got a lot easier. I got a lot of inspiration from W3 schools and formatting from Genshindle.com
+
+\n # is for Id and . for class. padding is inside margin outside. arrow syntax is a better way of assigning than =. used to assign a function
+
+DOM represents the page as a tree of objects which allows js to dynamically access it
 
 ## CSS
 
@@ -42,6 +46,19 @@ Setting up Vite and React was pretty simple. If there was a ton of CSS it would 
 ## React Part 2: Reactivity
 
 Dude, react is so cool! I love putting listeners in, and it's crazy the amount of functionality that can be quickly created. and it's all pretty simple. You just need to use react states - oh you can't forget to import those or it will break everything. useEffect is for "side effects" like things that affect other things than just the passed in/out
+
+### Promises
+promises are asynchronous operations. They allow you to fetch data while continuing.
+syntax is like:
+
+let promise = new Promise(function(resolve, reject) {
+    //do something asynchronous
+    if (success) {
+        resolve(value);
+    } else {
+        reject(error);
+    }
+});
 
 ## Service
 This one was a little tricky. Mostly because I'm really bad at file structure. I feel like I can run the code, but structuring it is so hard! Using node.js is pretty easy. Creating the endpoints might be easier than just in java
