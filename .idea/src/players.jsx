@@ -1,0 +1,35 @@
+import React from 'react';
+
+import { GameEvent, GameNotifier } from './notifier';
+
+export function Players(props) {
+    const userName = props.userName;
+
+    const [events, setEvent] = React.useState([]);
+
+    React.useEffect(() => {
+        GameNotifier.addHandler(handleGameEvent);
+
+        return () => {
+            GameNotifier.removeHandler(handleGameEvent);
+        };
+    });
+
+    function handleGameEvent(event) {
+        setEvent([...events, event]);
+    }
+
+    function createMessageArray() {
+        const messageArray = [];
+        for (const [i, event] of events.entries()) {
+            let message = 'unknown';
+            if (event.type === GameEvent.Highscore) {
+                message = `got a new highscore of ${event.value.score}`;
+            } else if (event.type === GameEvent.System) {
+                message = event.value.msg;
+            }
+
+
+        }
+    }
+}

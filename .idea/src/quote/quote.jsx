@@ -4,8 +4,9 @@ import getDailyQuote from './dailyQuote';
 import quotes from "../guess/character_data.json"
 import CharSearch from '../guess/charSearch';
 import { AuthState } from '../login/authState';
+import { GameNotifier, GameEvent } from '../notifier';
 
-export function Quote({ authState} ) {
+export function Quote({ authState }) {
   const quote = getDailyQuote()
   const [guesses, setGuesses] = useState([]);
   const [gameOver, setGameOver] = useState(false);
@@ -80,6 +81,7 @@ export function Quote({ authState} ) {
     if (response.ok) {
       const data = await response.json();
       setHighScore(data.highScore);
+      GameNotifier.broadcastEvent(data.userName, GameEvent.Highscore, user.Highscore);
     }
   }
 

@@ -4,6 +4,7 @@ import getDailyChar from './dailyChar';
 import characters from "./character_data.json"
 import "./guess.css"
 import { AuthState } from '../login/authState';
+import { GameEvent, GameNotifier } from '../notifier';
 
 
 export function Guess({ authState }) {
@@ -92,6 +93,7 @@ export function Guess({ authState }) {
     if (response.ok) {
       const data = await response.json();
       setHighScore(data.highScore);
+      GameNotifier.broadcastEvent(data.userName, GameEvent.Highscore, user.Highscore);
     }
   }
 

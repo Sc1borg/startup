@@ -5,6 +5,7 @@ import getDailyChar from "../guess/dailyChar";
 import characters from "../guess/character_data.json";
 import regex from "emoji-regex"
 import { AuthState } from '../login/authState';
+import { GameEvent, GameNotifier } from '../notifier';
 
 export function Emoji({ authState }) {
   const [guesses, setGuesses] = useState([]);
@@ -63,6 +64,7 @@ export function Emoji({ authState }) {
     if (response.ok) {
       const data = await response.json();
       setHighScore(data.highScore);
+      GameNotifier.broadcastEvent(data.userName, GameEvent.Highscore, user.Highscore);
     }
   }
 

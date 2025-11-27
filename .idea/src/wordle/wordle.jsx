@@ -3,6 +3,7 @@ import "./wordle.css"
 import getDailyChar from './dailyChar';
 import { characters } from './dailyChar';
 import { AuthState } from '../login/authState';
+import { GameNotifier, GameEvent } from '../notifier';
 
 export function Wordle({ authState }) {
   const [currentRow, setCurrentRow] = useState(0);
@@ -147,6 +148,7 @@ export function Wordle({ authState }) {
     if (response.ok) {
       const data = await response.json();
       setHighScore(data.highScore);
+      GameNotifier.broadcastEvent(data.userName, GameEvent.Highscore, user.Highscore);
     }
   }
 

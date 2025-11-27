@@ -77,16 +77,16 @@ apiRouter.get('/scores', verifyAuth, async (req, res) => {
   if (user) {
     switch (req.query.type) {
       case "guess":
-        res.send({ highScore: user.highScore });
+        res.send({ highScore: user.highScore, userName: user.userName });
         break;
       case "wordle":
-        res.send({ highScore: user.wordleHigh });
+        res.send({ highScore: user.wordleHigh, userName: user.userName });
         break;
       case "quote":
-        res.send({ highScore: user.quoteHigh })
+        res.send({ highScore: user.quoteHigh, userName: user.userName })
         break;
       case "emoji":
-        res.send({ highScore: user.emojiHigh })
+        res.send({ highScore: user.emojiHigh, userName: user.userName })
         break;
       default:
         res.status(400).send({ msg: 'Invalid type parameter' });
