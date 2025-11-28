@@ -6,6 +6,7 @@ import { Quote } from './quote/quote';
 import { Wordle } from './wordle/wordle';
 import { Login } from './login/login';
 import { AuthState } from './login/authState';
+import { Players } from './players';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './app.css';
 
@@ -61,7 +62,7 @@ export default function App() {
           <Route path='*' element={<NotFound />} />
         </Routes>
         </main>
-        <footer><a className="footerlink" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Real Time communication here</a></footer>
+        <footer><Players userName={userName} /></footer>
       </div>
     </BrowserRouter>);
 }

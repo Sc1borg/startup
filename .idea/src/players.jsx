@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { GameEvent, GameNotifier } from './notifier';
+import './players.css';
 
 export function Players(props) {
     const userName = props.userName;
@@ -29,7 +30,19 @@ export function Players(props) {
                 message = event.value.msg;
             }
 
-
+            messageArray.push(
+                <div key={i} className='event'>
+                    <span className={'player-event'}>{event.from.split('@')[0]}</span>
+                    {message}
+                </div>
+            );
         }
+        return messageArray;
     }
+
+    return (
+        <div className='players'>
+            <div id='player-messages'>{createMessageArray()}</div>
+        </div>
+    );
 }

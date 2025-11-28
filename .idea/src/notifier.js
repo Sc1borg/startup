@@ -58,4 +58,4 @@ class GameEventNotifier {
 }
 
 const GameNotifier = new GameEventNotifier();
-export { GameEvent, GameNotifier};
+export { GameEvent, GameNotifier };
