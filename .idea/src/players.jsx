@@ -1,7 +1,6 @@
 import React from 'react';
 
 import { GameEvent, GameNotifier } from './notifier';
-import './players.css';
 
 export function Players(props) {
     const userName = props.userName;
