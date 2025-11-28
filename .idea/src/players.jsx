@@ -13,35 +13,30 @@ export function Players(props) {
         return () => {
             GameNotifier.removeHandler(handleGameEvent);
         };
-    });
+    }, []);
 
     function handleGameEvent(event) {
-        setEvent([...events, event]);
+        setEvent(prevEvents => [...prevEvents, event]);
     }
 
-    function createMessageArray() {
-        const messageArray = [];
-        for (const [i, event] of events.entries()) {
-            let message = 'unknown';
-            if (event.type === GameEvent.Highscore) {
-                message = `got a new highscore of ${event.value.score}`;
-            } else if (event.type === GameEvent.System) {
-                message = event.value.msg;
+    function getHighscoreMessage() {
+        if (events.length > 0) {
+            const entry = events[events.length - 1];
+            let message = null;
+            if (entry.type === GameEvent.Highscore) {
+                return (
+                    <span>
+                        {entry.from.split('@')[0]} got a new highscore of {entry.value.score}
+                    </span>
+                )
             }
-
-            messageArray.push(
-                <div key={i} className='event'>
-                    <span className={'player-event'}>{event.from.split('@')[0]}</span>
-                    {message}
-                </div>
-            );
         }
-        return messageArray;
+        return null;
     }
 
     return (
         <div className='players'>
-            <div id='player-messages'>{createMessageArray()}</div>
+            {getHighscoreMessage() && (<div id='player-message'>{getHighscoreMessage()}</div>)}
         </div>
     );
 }
