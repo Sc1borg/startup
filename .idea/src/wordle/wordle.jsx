@@ -14,7 +14,7 @@ export function Wordle({ authState }) {
   const numLetters = dailyCharName.length;
   const [won, setWon] = useState(false);
   const [celebEmoji, setCelebEmoji] = React.useState(null);
-  const [highScore, setHighScore] = React.useState(null);
+  const [highScore, setHighScore] = React.useState(localStorage.getItem('wordleHigh') || null);
 
   React.useEffect(() => {
     fetch("https://emojihub.yurace.pro/api/random/category/smileys-and-people")
@@ -26,7 +26,6 @@ export function Wordle({ authState }) {
         setCelebEmoji(String.fromCodePoint(codePoint));
       })
       .catch();
-    getScore('/api/scores');
   }, []);
 
   useEffect(() => {
@@ -148,7 +147,8 @@ export function Wordle({ authState }) {
     if (response.ok) {
       const data = await response.json();
       setHighScore(data.highScore);
-      GameNotifier.broadcastEvent(data.userName, GameEvent.Highscore, data.Highscore);
+      localStorage.setItem('wordleHigh', data.highScore);
+      GameNotifier.broadcastEvent(data.userName, GameEvent.Highscore, data.highScore);
     }
   }
 

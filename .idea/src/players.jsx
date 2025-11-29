@@ -2,8 +2,7 @@ import React from 'react';
 
 import { GameEvent, GameNotifier } from './notifier';
 
-export function Players(props) {
-    const userName = props.userName;
+export function Players() {
 
     const [events, setEvent] = React.useState([]);
 
@@ -13,7 +12,7 @@ export function Players(props) {
         return () => {
             GameNotifier.removeHandler(handleGameEvent);
         };
-    }, []);
+    });
 
     function handleGameEvent(event) {
         setEvent(prevEvents => [...prevEvents, event]);
@@ -21,15 +20,15 @@ export function Players(props) {
 
     function getHighscoreMessage() {
         if (events.length > 0) {
-            const entry = events[events.length - 1];
-            let message = null;
-            if (entry.type === GameEvent.Highscore) {
-                return (
-                    <span>
-                        {entry.from.split('@')[0]} got a new highscore of {entry.value.score}
-                    </span>
-                )
+            let message = 'unknown';
+            for (const [i, event] of events.entries()) {
+                if (event.type === GameEvent.Highscore) {
+                    message = `${event.from} got a new highscore of ${event.value}`
+                } else if (event.type === GameEvent.System) {
+                    message = null;
+                }
             }
+            return message;
         }
         return null;
     }

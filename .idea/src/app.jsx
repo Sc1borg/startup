@@ -62,7 +62,7 @@ export default function App() {
           <Route path='*' element={<NotFound />} />
         </Routes>
         </main>
-        <footer><Players userName={userName} /></footer>
+        <footer><Players /></footer>
       </div>
     </BrowserRouter>);
 }
