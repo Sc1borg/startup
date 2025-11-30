@@ -65,3 +65,6 @@ This one was a little tricky. Mostly because I'm really bad at file structure. I
 
 ## MongoDB
 This might have been the easiest part so far. Using express as middleware makes it really easy to write and retrieve data from MongoDb.
+
+## Websocket
+Websocket gave me a decent amount of trouble. I tried doing what simon did, but I wanted to only display one message (which I hope is ok with the assignment), so I had to change a lot of what simon did, and it was completely unusable for a couple of days until I figured it out. Websocket is a powerful tool though.

@@ -127,10 +127,10 @@ For this deliverable I did the following:
 
 ## 🚀 WebSocket deliverable
 
-For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
+For this deliverable I did the following:
 
-- [ ] **Backend listens for WebSocket connection** - I did not complete this part of the deliverable.
-- [ ] **Frontend makes WebSocket connection** - I did not complete this part of the deliverable.
-- [ ] **Data sent over WebSocket connection** - I did not complete this part of the deliverable.
-- [ ] **WebSocket data displayed** - I did not complete this part of the deliverable.
-- [ ] **Application is fully functional** - I did not complete this part of the deliverable.
+- [x] **Backend listens for WebSocket connection** - The backend handles websocket calls
+- [x] **Frontend makes WebSocket connection** - The connection is made
+- [x] **Data sent over WebSocket connection** - I send information about new highscores over websocket
+- [x] **WebSocket data displayed** - Whenever a player gets a new score, it is displayed in the bottom
+- [x] **Application is fully functional** - The app has data about the karasuno and nekoma teams.
