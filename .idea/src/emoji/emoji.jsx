@@ -48,7 +48,7 @@ export function Emoji({ authState }) {
       const data = await response.json();
       if (data.changed) {
         GameNotifier.broadcastEvent(data.userName, GameEvent.Highscore, guesses.length+1, 'Emoji');
-        setHighScore(data.highScore);
+        setHighScore(guesses.length+1);
       }
     } else {
       console.error('Failed to send score', response.status)
@@ -85,6 +85,7 @@ export function Emoji({ authState }) {
     }
     if (guesses.length >= 4) {
       setGameOver(true);
+      alert(`Try again tomorrow!\nCorrect character was ${dailyChar.name}`);
     }
     const correctness = {
       name: guessedCharacter.name === dailyChar.name

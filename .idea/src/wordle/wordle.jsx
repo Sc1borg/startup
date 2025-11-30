@@ -26,7 +26,7 @@ export function Wordle({ authState }) {
         setCelebEmoji(String.fromCodePoint(codePoint));
       })
       .catch();
-      getScore("/api/scores");
+    getScore("/api/scores");
   }, []);
 
   useEffect(() => {
@@ -63,10 +63,13 @@ export function Wordle({ authState }) {
           }
         }
         const word = rowLetters.join('');
-        if (characters.includes(word.toLowerCase())) {
+        if (characters.some(item => item.toLowerCase() === word.toLowerCase())) {
           handleGuess(word)
           setCurrentRow(currentRow + 1);
           setCurrentCol(0);
+        }
+        if (currentRow === 5) {
+          alert(`Try again tomorrow!\nCorrect character was ${dailyCharName}`);
         }
       }
     };
@@ -82,7 +85,7 @@ export function Wordle({ authState }) {
     }
 
     const handleGuess = (name) => {
-      if (name.toLowerCase() === dailyCharName) {
+      if (name.toLowerCase() === dailyCharName.toLowerCase()) {
         setWon(true);
         sendScore("/api/score");
         alert(`${celebEmoji} Congratulations! ${celebEmoji}`);
@@ -130,8 +133,8 @@ export function Wordle({ authState }) {
     if (response.ok) {
       const data = await response.json();
       if (data.changed) {
-        GameNotifier.broadcastEvent(data.userName, GameEvent.Highscore, currentRow+1, 'Wordle');
-        setHighScore(data.highScore);
+        GameNotifier.broadcastEvent(data.userName, GameEvent.Highscore, currentRow + 1, 'Wordle');
+        setHighScore(currentRow + 1);
       }
     } else {
       console.error('Failed to send score', response.status)

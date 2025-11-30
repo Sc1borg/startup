@@ -50,6 +50,7 @@ export function Guess({ authState }) {
     }
     if (guesses.length >= 4) {
       setGameOver(true);
+      alert(`Try again tomorrow!\nCorrect character was ${dailyChar.name}`);
     }
     const color = {
       name: guessedCharacter.name === dailyChar.name ? 'green' : 'red',
@@ -76,8 +77,7 @@ export function Guess({ authState }) {
       const data = await response.json();
       if (data.changed) {
         GameNotifier.broadcastEvent(data.userName, GameEvent.Highscore, guesses.length+1, 'Guess');
-        setHighScore(data.highScore);
-        console.log('hello');
+        setHighScore(guesses.length+1);
       }
     } else {
       console.error('Failed to send score', response.status)
