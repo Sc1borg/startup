@@ -26,6 +26,7 @@ export function Wordle({ authState }) {
         setCelebEmoji(String.fromCodePoint(codePoint));
       })
       .catch();
+      getScore("/api/scores");
   }, []);
 
   useEffect(() => {
@@ -128,9 +129,11 @@ export function Wordle({ authState }) {
     });
     if (response.ok) {
       const data = await response.json();
+      console.log(data);
       if (data.changed) {
-        GameNotifier.broadcastEvent(data.userName, GameEvent.Highscore, data.highScore);
+        GameNotifier.broadcastEvent(data.userName, GameEvent.Highscore, currentRow+1);
         setHighScore(data.highScore);
+        console.log('hello');
       }
     } else {
       console.error('Failed to send score', response.status)

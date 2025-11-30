@@ -63,7 +63,7 @@ export function Quote({ authState }) {
     if (response.ok) {
       const data = await response.json();
       if (data.changed) {
-        GameNotifier.broadcastEvent(data.userName, GameEvent.Highscore, data.highScore);
+        GameNotifier.broadcastEvent(data.userName, GameEvent.Highscore, guesses.length+1);
         setHighScore(data.highScore);
       }
     } else {

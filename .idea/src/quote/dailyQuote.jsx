@@ -5,7 +5,7 @@ export default function getDailyQuote() {
     const today = new Date();
 
     const diffTime = today - startDate;
-    const diffDays = Math.floor(diffTime / (1069 * 60 * 60 * 24));
+    const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
 
     const index = diffDays % quotes.length;
 

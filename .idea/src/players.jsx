@@ -34,7 +34,7 @@ export function Players() {
     }
 
     return (
-        <div className='players'>
+        <div className='players' style={{color:'white'}}>
             {getHighscoreMessage() && (<div id='player-message'>{getHighscoreMessage()}</div>)}
         </div>
     );

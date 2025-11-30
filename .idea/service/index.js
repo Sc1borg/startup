@@ -112,28 +112,28 @@ apiRouter.post('/score', verifyAuth, async (req, res) => {
           DB.updateScore(user, 'highScore', score);
           changed = true;
         }
-        res.send({ highScore: user.highScore, userName: user.email });
+        res.send({ userName: user.email, changed: changed });
         break;
       case 'wordle':
         if (user.wordleHigh == null || user.wordleHigh > score) {
           DB.updateScore(user, 'wordleHigh', score);
           changed = true;
         }
-        res.send({ highScore: user.wordleHigh, userName: user.email });
+        res.send({ userName: user.email, changed: changed });
         break;
       case 'quote':
         if (user.quoteHigh == null || user.quoteHigh > score) {
           DB.updateScore(user, 'quoteHigh', score);
           changed = true;
         }
-        res.send({ highScore: user.quoteHigh, userName: user.email });
+        res.send({ userName: user.email, changed: changed });
         break;
       case 'emoji':
         if (user.emojiHigh == null || user.emojiHigh > score) {
           DB.updateScore(user, 'emojiHigh', score);
           changed = true;
         }
-        res.send({ highScore: user.emojiHigh, userName: user.email });
+        res.send({ userName: user.email, changed: changed });
         break;
       default:
         res.status(400).send({ msg: 'Invalid type' });
