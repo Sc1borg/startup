@@ -4,10 +4,11 @@ const GameEvent = {
 };
 
 class EventMessage {
-    constructor(from, type, value) {
+    constructor(from, type, value, game) {
         this.from = from;
         this.type = type;
         this.value = value;
+        this.game = game;
     }
 }
 
@@ -33,8 +34,8 @@ class GameEventNotifier {
         };
     }
 
-    broadcastEvent(from, type, value) {
-        const event = new EventMessage(from, type, value);
+    broadcastEvent(from, type, value, game) {
+        const event = new EventMessage(from, type, value, game);
         this.socket.send(JSON.stringify(event));
     }
 

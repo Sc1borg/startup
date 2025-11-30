@@ -75,7 +75,7 @@ export function Guess({ authState }) {
     if (response.ok) {
       const data = await response.json();
       if (data.changed) {
-        GameNotifier.broadcastEvent(data.userName, GameEvent.Highscore, guesses.length+1);
+        GameNotifier.broadcastEvent(data.userName, GameEvent.Highscore, guesses.length+1, 'Guess');
         setHighScore(data.highScore);
         console.log('hello');
       }

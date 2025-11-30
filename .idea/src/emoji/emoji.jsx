@@ -47,7 +47,7 @@ export function Emoji({ authState }) {
     if (response.ok) {
       const data = await response.json();
       if (data.changed) {
-        GameNotifier.broadcastEvent(data.userName, GameEvent.Highscore, guesses.length+1);
+        GameNotifier.broadcastEvent(data.userName, GameEvent.Highscore, guesses.length+1, 'Emoji');
         setHighScore(data.highScore);
       }
     } else {

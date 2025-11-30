@@ -23,7 +23,7 @@ export function Players() {
             let message = 'unknown';
             for (const [i, event] of events.entries()) {
                 if (event.type === GameEvent.Highscore) {
-                    message = `${event.from} got a new highscore of ${event.value}`
+                    message = `${event.from} got a new highscore of ${event.value} in ${event.game}`
                 } else if (event.type === GameEvent.System) {
                     message = null;
                 }

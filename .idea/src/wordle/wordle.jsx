@@ -129,11 +129,9 @@ export function Wordle({ authState }) {
     });
     if (response.ok) {
       const data = await response.json();
-      console.log(data);
       if (data.changed) {
-        GameNotifier.broadcastEvent(data.userName, GameEvent.Highscore, currentRow+1);
+        GameNotifier.broadcastEvent(data.userName, GameEvent.Highscore, currentRow+1, 'Wordle');
         setHighScore(data.highScore);
-        console.log('hello');
       }
     } else {
       console.error('Failed to send score', response.status)
