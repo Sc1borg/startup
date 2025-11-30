@@ -47,8 +47,7 @@ export function Guess({ authState }) {
       setGameOver(true);
       sendScore("/api/score");
       alert(`${celebEmoji} Congratulations! ${celebEmoji}`);
-    }
-    if (guesses.length >= 4) {
+    } else if (guesses.length >= 4) {
       setGameOver(true);
       alert(`Try again tomorrow!\nCorrect character was ${dailyChar.name}`);
     }
@@ -76,8 +75,8 @@ export function Guess({ authState }) {
     if (response.ok) {
       const data = await response.json();
       if (data.changed) {
-        GameNotifier.broadcastEvent(data.userName, GameEvent.Highscore, guesses.length+1, 'Guess');
-        setHighScore(guesses.length+1);
+        GameNotifier.broadcastEvent(data.userName, GameEvent.Highscore, guesses.length + 1, 'Guess');
+        setHighScore(guesses.length + 1);
       }
     } else {
       console.error('Failed to send score', response.status)

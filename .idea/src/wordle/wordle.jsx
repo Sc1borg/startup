@@ -68,7 +68,7 @@ export function Wordle({ authState }) {
           setCurrentRow(currentRow + 1);
           setCurrentCol(0);
         }
-        if (currentRow === 5) {
+        if (currentRow === 5 && word.toLowerCase() !== dailyCharName.toLowerCase()) {
           alert(`Try again tomorrow!\nCorrect character was ${dailyCharName}`);
         }
       }
@@ -93,9 +93,9 @@ export function Wordle({ authState }) {
       for (let i = 0; i < name.length; i++) {
         const boxCounter = boxesCounter.current[`${currentRow}-${i}`];
         if (boxCounter) {
-          if (name[i].toLowerCase() === dailyCharName[i]) {
+          if (name[i].toLowerCase() === dailyCharName[i].toLowerCase()) {
             boxCounter.style.backgroundColor = 'green';
-          } else if (dailyCharName.includes(name[i].toLowerCase())) {
+          } else if (dailyCharName.toLowerCase().includes(name[i].toLowerCase())) {
             let letterCount = getCount(name.slice(0, i), name[i]);
             if (letterCount > 0) {
               let answerCount = getCount(dailyCharName, name[i]);

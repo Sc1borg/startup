@@ -23,7 +23,7 @@ export function Quote({ authState }) {
         setCelebEmoji(String.fromCodePoint(codePoint));
       })
       .catch();
-      getScore('/api/scores');
+    getScore('/api/scores');
   }, []);
 
   const findCharacterByName = (name) => {
@@ -40,8 +40,7 @@ export function Quote({ authState }) {
       setGameOver(true);
       sendScore("/api/score");
       alert(`${celebEmoji} Congratulations! ${celebEmoji}`);
-    }
-    if (guesses.length >= 4) {
+    } else if (guesses.length >= 4) {
       setGameOver(true);
       alert(`Try again tomorrow!\nCorrect character was ${quote.name}`);
     }
@@ -65,7 +64,7 @@ export function Quote({ authState }) {
       const data = await response.json();
       if (data.changed) {
         GameNotifier.broadcastEvent(data.userName, GameEvent.Highscore, guesses.length + 1, 'Quote');
-        setHighScore(guesses.length+1);
+        setHighScore(guesses.length + 1);
       }
     } else {
       console.error('Failed to send score', response.status)
