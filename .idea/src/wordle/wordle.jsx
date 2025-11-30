@@ -14,7 +14,7 @@ export function Wordle({ authState }) {
   const numLetters = dailyCharName.length;
   const [won, setWon] = useState(false);
   const [celebEmoji, setCelebEmoji] = React.useState(null);
-  const [highScore, setHighScore] = React.useState(localStorage.getItem('wordleHigh') || null);
+  const [highScore, setHighScore] = React.useState(null);
 
   React.useEffect(() => {
     fetch("https://emojihub.yurace.pro/api/random/category/smileys-and-people")
@@ -84,7 +84,6 @@ export function Wordle({ authState }) {
       if (name.toLowerCase() === dailyCharName) {
         setWon(true);
         sendScore("/api/score");
-        getScore("api/scores");
         alert(`${celebEmoji} Congratulations! ${celebEmoji}`);
       }
       for (let i = 0; i < name.length; i++) {
@@ -129,6 +128,10 @@ export function Wordle({ authState }) {
     });
     if (response.ok) {
       const data = await response.json();
+      if (data.changed) {
+        GameNotifier.broadcastEvent(data.userName, GameEvent.Highscore, data.highScore);
+        setHighScore(data.highScore);
+      }
     } else {
       console.error('Failed to send score', response.status)
     }
@@ -147,8 +150,6 @@ export function Wordle({ authState }) {
     if (response.ok) {
       const data = await response.json();
       setHighScore(data.highScore);
-      localStorage.setItem('wordleHigh', data.highScore);
-      GameNotifier.broadcastEvent(data.userName, GameEvent.Highscore, data.highScore);
     }
   }
 

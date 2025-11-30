@@ -78,16 +78,16 @@ apiRouter.get('/scores', verifyAuth, async (req, res) => {
   if (user) {
     switch (req.query.type) {
       case "guess":
-        res.send({ highScore: user.highScore, userName: user.email });
+        res.send({ highScore: user.highScore });
         break;
       case "wordle":
-        res.send({ highScore: user.wordleHigh, userName: user.email });
+        res.send({ highScore: user.wordleHigh });
         break;
       case "quote":
-        res.send({ highScore: user.quoteHigh, userName: user.email })
+        res.send({ highScore: user.quoteHigh })
         break;
       case "emoji":
-        res.send({ highScore: user.emojiHigh, userName: user.email })
+        res.send({ highScore: user.emojiHigh })
         break;
       default:
         res.status(400).send({ msg: 'Invalid type parameter' });
@@ -105,31 +105,35 @@ apiRouter.post('/score', verifyAuth, async (req, res) => {
     if (!type || score == null) {
       return res.status(400).send({ msg: 'Missing type or score' });
     }
-
+    let changed = false;
     switch (type) {
       case 'guess':
         if (user.highScore == null || user.highScore > score) {
           DB.updateScore(user, 'highScore', score);
+          changed = true;
         }
-        res.send({ highScore: user.highScore });
+        res.send({ highScore: user.highScore, userName: user.email });
         break;
       case 'wordle':
         if (user.wordleHigh == null || user.wordleHigh > score) {
           DB.updateScore(user, 'wordleHigh', score);
+          changed = true;
         }
-        res.send({ highScore: user.wordleHigh });
+        res.send({ highScore: user.wordleHigh, userName: user.email });
         break;
       case 'quote':
         if (user.quoteHigh == null || user.quoteHigh > score) {
           DB.updateScore(user, 'quoteHigh', score);
+          changed = true;
         }
-        res.send({ highScore: user.quoteHigh });
+        res.send({ highScore: user.quoteHigh, userName: user.email });
         break;
       case 'emoji':
         if (user.emojiHigh == null || user.emojiHigh > score) {
           DB.updateScore(user, 'emojiHigh', score);
+          changed = true;
         }
-        res.send({ highScore: user.emojiHigh });
+        res.send({ highScore: user.emojiHigh, userName: user.email });
         break;
       default:
         res.status(400).send({ msg: 'Invalid type' });

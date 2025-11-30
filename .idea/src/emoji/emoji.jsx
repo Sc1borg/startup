@@ -46,6 +46,10 @@ export function Emoji({ authState }) {
     });
     if (response.ok) {
       const data = await response.json();
+      if (data.changed) {
+        GameNotifier.broadcastEvent(data.userName, GameEvent.Highscore, data.highScore);
+        setHighScore(data.highScore);
+      }
     } else {
       console.error('Failed to send score', response.status)
     }
@@ -64,7 +68,6 @@ export function Emoji({ authState }) {
     if (response.ok) {
       const data = await response.json();
       setHighScore(data.highScore);
-      GameNotifier.broadcastEvent(data.userName, GameEvent.Highscore, data.highScore);
     }
   }
 
@@ -78,7 +81,6 @@ export function Emoji({ authState }) {
     if (guessedCharacter.name === dailyChar.name) {
       setGameOver(true);
       sendScore("/api/score");
-      getScore("/api/scores");
       alert(`${celebEmoji} Congratulations! ${celebEmoji}`);
     }
     if (guesses.length >= 4) {
