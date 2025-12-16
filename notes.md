@@ -29,7 +29,7 @@ Status codes: 100 - incomplete, 200 - ok, 300 - redirect, 400 - client error, 50
 content-type(header): allows you to specify format of the data(plain text/html/json/xml/image)
 
 ### Cookies
-Secure cookie - Only sent to the server with an encrypted request over https. Can still be accessed by javascript if someone has the device \n
+Secure cookie - Only sent to the server with an encrypted request over https. Can still be accessed by javascript if someone has the device \r\n
 http only - Cookies can't be accessed using javascript. It can only be accessed when it reaches the server (session cookies should be http only) \n
 SameSite - Specifies whether cookies are sent with cross site requests ie to or from other sites 3 levels \n
 Strict - only sends cookies in response to requests from the cookie's origin
