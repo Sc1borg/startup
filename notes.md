@@ -24,14 +24,14 @@ No problems worked just like it said in the [instruction](https://github.com/web
 
 ## HTTP
 
-Default ports: HTTP - 80, HTTPS - 443, SSH - 22 \n
-Status codes: 100 - incomplete, 200 - ok, 300 - redirect, 400 - client error, 500 - server error \n
+Default ports: HTTP - 80, HTTPS - 443, SSH - 22 
+Status codes: 100 - incomplete, 200 - ok, 300 - redirect, 400 - client error, 500 - server error 
 content-type(header): allows you to specify format of the data(plain text/html/json/xml/image)
 
 ### Cookies
-Secure cookie - Only sent to the server with an encrypted request over https. Can still be accessed by javascript if someone has the device \r\n
-http only - Cookies can't be accessed using javascript. It can only be accessed when it reaches the server (session cookies should be http only) \n
-SameSite - Specifies whether cookies are sent with cross site requests ie to or from other sites 3 levels \n
+Secure cookie - Only sent to the server with an encrypted request over https. Can still be accessed by javascript if someone has the device 
+http only - Cookies can't be accessed using javascript. It can only be accessed when it reaches the server (session cookies should be http only) 
+SameSite - Specifies whether cookies are sent with cross site requests ie to or from other sites 3 levels 
 Strict - only sends cookies in response to requests from the cookie's origin
 Lax - sends cookies when someone navigates to the site as well as the strict cookies
 None - Just sends cookies - Secure must also be set.
@@ -40,7 +40,7 @@ None - Just sends cookies - Secure must also be set.
 
 I struggled at first because I didn't understand how to edit my html files and then deploy them, but once I found out that I didn't need to be in my ssh to edit it, it got a lot easier. I got a lot of inspiration from W3 schools and formatting from Genshindle.com
 
-\n # is for Id and . for class. padding is inside margin outside. arrow syntax is a better way of assigning than =. used to assign a function
+# is for Id and . for class. padding is inside margin outside. arrow syntax is a better way of assigning than =. used to assign a function
 
 DOM represents the page as a tree of objects which allows js to dynamically access it
 
@@ -120,7 +120,7 @@ This might have been the easiest part so far. Using express as middleware makes 
 
 user passwords should always be hashed. 
 
-methods include find, insert, update, and query operators like $gt (>), $lt (<), $regex \n
+methods include find, insert, update, and query operators like $gt (>), $lt (<), $regex
 You can either insert/update one or many using a list of json objects.
 
 ## Websocket
