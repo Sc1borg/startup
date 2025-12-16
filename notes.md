@@ -22,6 +22,20 @@ tried to set up a domain name, but I had trouble because route 53 wasn't working
 
 No problems worked just like it said in the [instruction](https://github.com/webprogramming260/.github/blob/main/profile/webServers/https/https.md).
 
+## HTTP
+
+Default ports: HTTP - 80, HTTPS - 443, SSH - 22 \n
+Status codes: 100 - incomplete, 200 - ok, 300 - redirect, 400 - client error, 500 - server error \n
+content-type(header): allows you to specify format of the data(plain text/html/json/xml/image)
+
+### Cookies
+Secure cookie - Only sent to the server with an encrypted request over https. Can still be accessed by javascript if someone has the device \n
+http only - Cookies can't be accessed using javascript. It can only be accessed when it reaches the server (session cookies should be http only) \n
+SameSite - Specifies whether cookies are sent with cross site requests ie to or from other sites 3 levels \n
+Strict - only sends cookies in response to requests from the cookie's origin
+Lax - sends cookies when someone navigates to the site as well as the strict cookies
+None - Just sends cookies - Secure must also be set.
+
 ## HTML
 
 I struggled at first because I didn't understand how to edit my html files and then deploy them, but once I found out that I didn't need to be in my ssh to edit it, it got a lot easier. I got a lot of inspiration from W3 schools and formatting from Genshindle.com
@@ -66,5 +80,14 @@ This one was a little tricky. Mostly because I'm really bad at file structure. I
 ## MongoDB
 This might have been the easiest part so far. Using express as middleware makes it really easy to write and retrieve data from MongoDb.
 
+user passwords should always be hashed. 
+
+methods include find, insert, update, and query operators like $gt (>), $lt (<), $regex \n
+You can either insert/update one or many using a list of json objects.
+
 ## Websocket
 Websocket gave me a decent amount of trouble. I tried doing what simon did, but I wanted to only display one message (which I hope is ok with the assignment), so I had to change a lot of what simon did, and it was completely unusable for a couple of days until I figured it out. Websocket is a powerful tool though.
+
+Websocket is intended to provide a full-duplex, persistent communication channel. (enable real-time, bidirectional data exchange over a single long-lived connection) 
+
+Acronyms: JSX - JavaScript XML, JS - JavaScript, AWS - amazon web service, NPM - Node package manager, NVM - node version manager, XML - eXtensible markup language
