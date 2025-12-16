@@ -40,7 +40,7 @@ None - Just sends cookies - Secure must also be set.
 
 I struggled at first because I didn't understand how to edit my html files and then deploy them, but once I found out that I didn't need to be in my ssh to edit it, it got a lot easier. I got a lot of inspiration from W3 schools and formatting from Genshindle.com
 
-# is for Id and . for class. padding is inside margin outside. arrow syntax is a better way of assigning than =. used to assign a function
+\# is for Id and . for class. padding is inside margin outside. arrow syntax is a better way of assigning than =. used to assign a function
 
 DOM represents the page as a tree of objects which allows js to dynamically access it
 
