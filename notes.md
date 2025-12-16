@@ -57,9 +57,47 @@ I love CSS it's so pretty! And it's honestly not too hard to learn!
 
 Setting up Vite and React was pretty simple. If there was a ton of CSS it would be a real problem. It sure was nice to have the code structured in a more usable way. Thanks Brynlee for the recommendation
 
+Link tags update the url without reloading the page
+
+switch renders the first route that matches the current url which is why we use exact for the "/" so that it only renders when there is nothing after
+
+the router tag is needed to enable React routing capacity.
+
+package.json defines the project metadata, manages dependencies, specifies scripts, controls project behavior, and tracks versioning.
+
+### Vite
+
+Vite provides a lightning fast local development environmentyhsy updates instantly as you make changes, it bundles and optimizes your code for production, and it supports modern JavaScript features.
+
 ## React Part 2: Reactivity
 
 Dude, react is so cool! I love putting listeners in, and it's crazy the amount of functionality that can be quickly created. and it's all pretty simple. You just need to use react states - oh you can't forget to import those or it will break everything. useEffect is for "side effects" like things that affect other things than just the passed in/out
+
+React.useState manages the internal state within the component. [state, setState] = React.useState(initalState)
+
+useEffect is used to manage side effects after the page has already been rendered.
+
+fetch is used for sending any http request. it fetches data from the specified url and returns a promise (meaning it's asynchronous) and allows you to handle the responses.
+
+### Node.js
+node.js is used for running JavaScript on the server. It allows you to handle backend/serverside development. It provides a rich set of modules and supports package management (npm). It efficiently handles asynchronous operations efficiently.
+
+pm2 \n
+automatically restarts node.js app if it crashes or stops unexpectedly, ensuring high availability
+manages multiple processes, provides process monitoring, supports log management, and enables easy deployment
+
+### Hooks
+
+State Hooks - lets a component remember information like user input.
+
+Context Hooks - lets a componenet receive information from distant parents without passing it as props useContext reads and subscribes to a context.
+
+Ref Hooks - lets a component hold information that isn't used for rendering, like a DOM node or a timeout ID. useful for working with non react systems
+
+Effect hooks - lets a component connect to and synchronize with external systems. Basically allows it to update based on outisde stimuli
+
+Performance Hooks - a common way to optimize re-rendering performance by reusing cached calculations. Also used to seperate rendering updates that must be synchronous from those that don't block user interaction.
+
 
 ### Promises
 promises are asynchronous operations. They allow you to fetch data while continuing.
